@@ -1,0 +1,381 @@
+﻿/* ==========================================
+   ESTILOS GENERALES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL DEL LOGIN
+   ========================================== */
+/* Este es el contenedor blanco que envuelve todo el formulario */
+.login-container {
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.login-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ==========================================
+   PANEL IZQUIERDO - INFORMACIÓN DEL HOSPITAL
+   ========================================== */
+/* Panel azul con información institucional y características */
+.login-left {
+    flex: 1;
+    min-width: 300px;
+    background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+    padding: 50px 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+    /* Efecto de fondo animado con pulso */
+    .login-left::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: pulse 15s ease-in-out infinite;
+    }
+
+/* Animación de pulso para el fondo */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Contenido del panel izquierdo con z-index para estar sobre el fondo */
+.login-left-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Logo del hospital (ícono grande) */
+.hospital-logo {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Nombre del sistema */
+.hospital-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Subtítulo descriptivo */
+.hospital-subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   CARACTERÍSTICAS DEL SISTEMA
+   ========================================== */
+/* Lista de features con íconos */
+.features {
+    margin-top: 30px;
+}
+
+/* Cada característica individual */
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+    /* Retraso escalonado para cada feature */
+    .feature-item:nth-child(1) {
+        animation-delay: 0.2s;
+    }
+
+    .feature-item:nth-child(2) {
+        animation-delay: 0.4s;
+    }
+
+    .feature-item:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+/* Animación de entrada desde la izquierda */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Contenedor del ícono de cada feature */
+.feature-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Texto descriptivo de cada feature */
+.feature-text {
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   PANEL DERECHO - FORMULARIO DE LOGIN
+   ========================================== */
+/* Panel blanco con el formulario */
+.login-right {
+    flex: 1;
+    min-width: 300px;
+    padding: 50px 40px;
+}
+
+/* Encabezado del formulario */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .login-header h2 {
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .login-header p {
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+/* ==========================================
+   ESTILOS DEL FORMULARIO
+   ========================================== */
+/* Grupo de cada campo del formulario */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Etiquetas de los campos */
+.form-label {
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Contenedor personalizado para inputs con íconos */
+.input-group-custom {
+    position: relative;
+}
+
+/* Ícono dentro del input (lado izquierdo) */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 1.1rem;
+    z-index: 10;
+}
+
+/* Estilos de los inputs */
+.form-control {
+    padding: 12px 15px 12px 45px; /* Espacio para el ícono izquierdo */
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+    /* Estado focus del input (cuando está activo) */
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.15);
+    }
+
+/* ==========================================
+   BOTÓN MOSTRAR/OCULTAR CONTRASEÑA
+   ========================================== */
+/* Botón del "ojo" para toggle de password */
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 1.1rem;
+    z-index: 10;
+    padding: 5px;
+}
+
+    /* Efecto hover del botón toggle */
+    .toggle-password:hover {
+        color: #667eea;
+    }
+
+/* ==========================================
+   CHECKBOX Y LINK DE RECUPERACIÓN
+   ========================================== */
+.form-check {
+    margin-bottom: 20px;
+}
+
+.form-check-label {
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Link "¿Olvidó su contraseña?" */
+.forgot-password {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    float: right;
+    margin-top: -18px;
+}
+
+    .forgot-password:hover {
+        text-decoration: underline;
+        color: #5568d3;
+    }
+
+/* ==========================================
+   BOTÓN DE INICIAR SESIÓN
+   ========================================== */
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+    /* Efecto hover del botón - se eleva */
+    .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    /* Efecto click del botón */
+    .btn-login:active {
+        transform: translateY(0);
+    }
+
+    /* Ícono dentro del botón */
+    .btn-login i {
+        margin-right: 8px;
+    }
+
+/* ==========================================
+   RESPONSIVE - TABLET (768px)
+   ========================================== */
+/* Ajustes para tablets y pantallas medianas */
+@media (max-width: 768px) {
+    .login-left {
+        padding: 40px 30px;
+        min-height: auto;
+    }
+
+    .login-right {
+        padding: 40px 30px;
+    }
+
+    .hospital-logo {
+        font-size: 3rem;
+    }
+
+    .hospital-name {
+        font-size: 1.5rem;
+    }
+
+    .features {
+        margin-top: 20px;
+    }
+
+    .feature-item {
+        margin-bottom: 15px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVIL (576px)
+   ========================================== */
+/* Ajustes para móviles y pantallas pequeñas */
+@media (max-width: 576px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-container {
+        border-radius: 15px;
+    }
+
+    .login-left,
+    .login-right {
+        padding: 30px 20px;
+    }
+
+    .hospital-logo {
+        font-size: 2.5rem;
+    }
+
+    .hospital-name {
+        font-size: 1.3rem;
+    }
+
+    .form-control {
+        padding: 10px 12px 10px 40px;
+    }
+}

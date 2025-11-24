@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Login\css\login.css" />
     <Content Include="Login\frmInicioSesion.aspx" />
+    <Content Include="Login\js\login.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
