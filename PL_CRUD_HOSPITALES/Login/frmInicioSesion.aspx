@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmInicioSesion.aspx.cs" Inherits="PL_CRUD_HOSPITALES.Login.frmInicioSesion" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>Hospital CRUD - Inicio de Sesión</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital CRUD - Inicio de Sesión</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,6 @@
     
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="css/login.css">
-
 </head>
 <body>
     <div class="login-container">
@@ -74,7 +73,7 @@
                 </div>
 
                 <!-- Formulario -->
-                <form id="loginForm" method="post" runat="server">
+                <form  action="javascript: inicioSesion() "id="loginForm" method="post">
                     <div class="form-group">
                         <label for="username" class="form-label">Usuario</label>
                         <div class="input-group-custom">
@@ -82,7 +81,7 @@
                             <input 
                                 type="email" 
                                 class="form-control" 
-                                id="username" 
+                                id="txtUsuario" 
                                 name="username"
                                 placeholder="Ingrese su correo"
                                 required
@@ -97,7 +96,7 @@
                             <input 
                                 type="password" 
                                 class="form-control" 
-                                id="password" 
+                                id="txtPassword" 
                                 name="password"
                                 placeholder="Ingrese su contraseña"
                                 required
@@ -108,27 +107,37 @@
                         </div>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="rememberMe" name="rememberMe">
-                        <label class="form-check-label" for="rememberMe">
-                            Recordar mi sesión
-                        </label>
-                        <a href="#" class="forgot-password">¿Olvidó su contraseña?</a>
-                    </div>
-
                     <button type="submit" class="btn btn-login">
                         <i class="bi bi-box-arrow-in-right"></i>
                         Iniciar Sesión
                     </button>
                 </form>
+
+                <!-- Elemento dinámico sutil -->
+                <div class="dynamic-footer">
+                    <div class="heartbeat-container">
+                        <i class="bi bi-heart-pulse heartbeat-icon"></i>
+                        <span class="heartbeat-text">Sistema en línea</span>
+                    </div>
+                    <div class="system-info">
+                        <small class="text-muted">
+                            <i class="bi bi-shield-check"></i> Conexión segura
+                        </small>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+        <!-- //form section start -->
+      <!-- js -->
+  <script src="js/jquery.min.js"></script>
+  <!-- //js -->
     <!-- JavaScript del Login -->
     <script src="js/login.js"></script>
+    <script src="../JavaScript/jquery.cookie.js"></script>
+    <script src="../JavaScript/InicioSesion.js"></script>
 </body>
 </html>

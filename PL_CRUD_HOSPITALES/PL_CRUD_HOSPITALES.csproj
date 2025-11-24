@@ -68,9 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="JavaScript\InicioSesion.js" />
+    <Content Include="JavaScript\jquery.cookie.js" />
     <Content Include="Login\css\login.css" />
     <Content Include="Login\frmInicioSesion.aspx" />
+    <Content Include="Login\js\jquery.min.js" />
     <Content Include="Login\js\login.js" />
+    <Content Include="Mantenimientos\frmPrincipal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +88,24 @@
     <Compile Include="Login\frmInicioSesion.aspx.designer.cs">
       <DependentUpon>frmInicioSesion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\frmPrincipal.aspx.cs">
+      <DependentUpon>frmPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmPrincipal.aspx.designer.cs">
+      <DependentUpon>frmPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\PrincipalMaster.Master.cs">
+      <DependentUpon>PrincipalMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\PrincipalMaster.Master.designer.cs">
+      <DependentUpon>PrincipalMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Mantenimientos\PrincipalMaster.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
