@@ -129,15 +129,19 @@
         </div>
     </div>
 
+
+
+      <!-- js -->
+  <script src="js/jquery.min.js"></script>
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- //form section start -->
-      <!-- js -->
-  <script src="js/jquery.min.js"></script>
+
   <!-- //js -->
     <!-- JavaScript del Login -->
     <script src="js/login.js"></script>
     <script src="../JavaScript/jquery.cookie.js"></script>
     <script src="../JavaScript/InicioSesion.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
