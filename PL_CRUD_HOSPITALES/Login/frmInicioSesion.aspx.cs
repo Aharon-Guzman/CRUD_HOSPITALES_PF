@@ -96,44 +96,44 @@ namespace PL_CRUD_HOSPITALES.Login
             }
         }
 
-        [WebMethod]
-        public static string cargaOpcionesMenuUsuarios(List<string> obj_Parametros_JS)
-        {
-            try
-            {
-                string _mensaje = string.Empty;
+        //[WebMethod]
+        //public static string cargaOpcionesMenuUsuarios(List<string> obj_Parametros_JS)
+        //{
+        //    try
+        //    {
+        //        string _mensaje = string.Empty;
 
-                cls_Usuarios_DAL obj_Usuarios_DAL = new cls_Usuarios_DAL();
-                cls_Usuarios_BLL obj_Usuarios_BLL = new cls_Usuarios_BLL();
+        //        cls_Usuarios_DAL obj_Usuarios_DAL = new cls_Usuarios_DAL();
+        //        cls_Usuarios_BLL obj_Usuarios_BLL = new cls_Usuarios_BLL();
 
-                obj_Usuarios_DAL.iId_Usuario = Convert.ToInt32(obj_Parametros_JS[0]);
+        //        obj_Usuarios_DAL.iId_Usuario = Convert.ToInt32(obj_Parametros_JS[0]);
 
-                obj_Usuarios_BLL.carga_Lista_Opciones_Menu_Usuario(ref obj_Usuarios_DAL);
+        //        obj_Usuarios_BLL.carga_Lista_Opciones_Menu_Usuario(ref obj_Usuarios_DAL);
 
-                if (obj_Usuarios_DAL.dtDatos.Rows.Count != 0)
-                {
-                    DataView dv_opciones = obj_Usuarios_DAL.dtDatos.DefaultView;
-                    dv_opciones.Sort = obj_Usuarios_DAL.dtDatos.Columns[4] + " ASC";
+        //        if (obj_Usuarios_DAL.dtDatos.Rows.Count != 0)
+        //        {
+        //            DataView dv_opciones = obj_Usuarios_DAL.dtDatos.DefaultView;
+        //            dv_opciones.Sort = obj_Usuarios_DAL.dtDatos.Columns[4] + " ASC";
 
-                    foreach (DataRowView row_view in dv_opciones)
-                    {
-                        _mensaje += "<li><a href='" + row_view[3].ToString() + "'><i class='" + row_view[2].ToString() + "'></i><span>" + row_view[1].ToString() + "</span></a></li>";
-                    }
-                }
-                else
-                {
-                    _mensaje = "No se encontraron registros";
-                }
+        //            foreach (DataRowView row_view in dv_opciones)
+        //            {
+        //                _mensaje += "<li><a href='" + row_view[3].ToString() + "'><i class='" + row_view[2].ToString() + "'></i><span>" + row_view[1].ToString() + "</span></a></li>";
+        //            }
+        //        }
+        //        else
+        //        {
+        //            _mensaje = "No se encontraron registros";
+        //        }
 
-                return _mensaje;
+        //        return _mensaje;
 
 
-            }
-            catch (Exception ex)
-            {
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-                throw ex;
-            }
-        }
+        //        throw ex;
+        //    }
+        //}
     }
 }

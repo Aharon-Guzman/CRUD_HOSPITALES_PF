@@ -33,16 +33,58 @@
 
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
-      <div class="navbar-logo">
-        <a href="frmPrincipal.aspx">
-          <img src="assets/images/logo/logo.svg" alt="logo" />
-        </a>
-      </div>
+
+        <div class="navbar-logo">
+  <a href="frmPrincipal.aspx" class="logo-link">
+    <img src="assets/images/logo/logoCRUD.jpg" alt="logo" class="logo-img" />
+    <span class="logo-text">CRUD Hospitales</span>
+  </a>
+</div>
+<%-- css de logo :) --%>
+<style>
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+/* Enlace que contiene logo + texto */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espacio pequeño entre logo y texto */
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+/* LOGO SUPER PEQUEÑO */
+.logo-img {
+  width: 50px; /* Ancho muy pequeño */
+  height: 50px; /* Alto muy pequeño */
+  object-fit: contain; /* Mantiene proporciones */
+  display: block;
+}
+
+/* Texto junto al logo */
+.logo-text {
+  font-size: 16px; /* Texto proporcionalmente pequeño */
+  font-weight: 600;
+  color: #3b69e9;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+</style>
+<%-- fin css de logo :) --%>
+
       <nav class="sidebar-nav">
         <ul>
           <li class="nav-item <%--nav-item-has-children--%>">
             <a
-              href="test.aspx"
+              href="frmPrincipal.aspx"
   <%--            data-bs-toggle="collapse"
               data-bs-target="#ddmenu_1"
               aria-controls="ddmenu_1"

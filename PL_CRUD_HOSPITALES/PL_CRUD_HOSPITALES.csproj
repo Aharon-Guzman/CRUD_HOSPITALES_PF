@@ -118,6 +118,8 @@
     <Content Include="Mantenimientos\assets\images\logo\logo-icon-big.svg" />
     <Content Include="Mantenimientos\assets\images\logo\logo-white.svg" />
     <Content Include="Mantenimientos\assets\images\logo\logo.svg" />
+    <Content Include="Mantenimientos\assets\images\logo\logo.jpg" />
+    <Content Include="Mantenimientos\assets\images\logo\LogoCRUD.jpg" />
     <Content Include="Mantenimientos\assets\images\modals\image-1.svg" />
     <Content Include="Mantenimientos\assets\images\products\product-mini-1.jpg" />
     <Content Include="Mantenimientos\assets\images\products\product-mini-2.jpg" />
