@@ -1,10 +1,10 @@
 use master 
 go
 
-create database CRUD_HOTELES
+create database CRUD_HOSPITALES
 go
 
-use CRUD_HOTELES
+use CRUD_HOSPITALES
 go
 
 
