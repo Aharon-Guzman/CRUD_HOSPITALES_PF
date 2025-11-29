@@ -118,23 +118,27 @@ function cerrarSesion() {
                     //COOKIES DE VEHICULO
                     $.cookie('VHCUNI', null, { expires: -1, path: '/', domain: g_Dominio }); //ID DE VEHICULO
 
-
-
-
-                    Swal.fire({
-                        position: 'center-center',
-                        icon: 'success',
-                        title: "Cierre de Sesión",
-                        text: "Gracias " + obj_Parametros_JS[1] + ". Hasta pronto!!!",
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: "center",
                         showConfirmButton: false,
-                        timer: 4500,
-                        timerProgressBar: true
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.onmouseenter = Swal.stopTimer;
+                            toast.onmouseleave = Swal.resumeTimer;
+                        }
                     });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Cerrardo Sesión"
+                    });
+
                     // se redirecciona al index
                     setTimeout(function () {
 
                         location.href = "/Login/frmInicioSesion.aspx";
-                    }, 5000);
+                    }, 2000);
 
                 } else {
 
@@ -214,7 +218,7 @@ function inicioSesion() {
                     });
                     Toast.fire({
                         icon: "success",
-                        title: "Signed in successfully"
+                        title: "Inicio de sesión correcto"
                     });
 
 
