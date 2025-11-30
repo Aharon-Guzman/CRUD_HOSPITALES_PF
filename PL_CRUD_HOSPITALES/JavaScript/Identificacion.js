@@ -56,7 +56,7 @@ function cargaListaTiposIdentificacion() {
                 else {
 
                     if (res === "No se encontraron registros") {
-
+                        
                         $("#tblTiposIdentificacion").html("");
                         Swal.fire({
                             title: "Búsqueda de Registros",
