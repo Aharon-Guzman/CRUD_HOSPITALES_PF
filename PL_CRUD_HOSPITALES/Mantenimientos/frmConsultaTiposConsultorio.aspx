@@ -1,16 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mantenimientos/PrincipalMaster.Master" AutoEventWireup="true" CodeBehind="frmConsultaTiposIdentificacion.aspx.cs" Inherits="PL_CRUD_HOSPITALES.Mantenimientos.frmConsultaTiposIdentificacion" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mantenimientos/PrincipalMaster.Master" AutoEventWireup="true" CodeBehind="frmConsultaTiposConsultorio.aspx.cs" Inherits="PL_CRUD_HOSPITALES.Mantenimientos.frmConsultaTiposConsultorio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- ========== title-wrapper start ========== -->
     <div class="title-wrapper pt-30">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title mb-30">
-                    <h2>Gestión de Tipos de Consultorio</h2>
+                    <h2>Gestión de Tipos de Identificación</h2>
                 </div>
             </div>
             <div class="col-md-6">
@@ -23,7 +22,7 @@
                             <li class="breadcrumb-item">
                                 <a href="#0">Catálogos</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Tipos de Consultorio
+                            <li class="breadcrumb-item active" aria-current="page">Tipos de Identificación
                             </li>
                         </ol>
                     </nav>
@@ -39,7 +38,7 @@
                 <div class="col-lg-12">
                     <!-- ========== Formulario de Búsqueda ========== -->
                     <div class="card-style mb-30">
-                        <h6 class="mb-25">Búsqueda de Tipos de Consultorio</h6>
+                        <h6 class="mb-25">Búsqueda de Tipos de Identificación</h6>
                         <form action="javascript: cargaListaTiposIdentificacion()" method="post" id="frmBusqueda">
                             <div class="row">
                                 <div class="col-md-5">
@@ -79,7 +78,7 @@
                     <!-- ========== Tabla de Resultados ========== -->
                     <!-- ========== Tabla de Resultados ========== -->
                     <div class="card-style mb-30">
-                        <h6 class="mb-25">Listado de Tipos de Consultorio</h6>
+                        <h6 class="mb-25">Listado de Tipos de Identificación</h6>
                         <div class="table-wrapper table-responsive">
                             <table id="tblTiposIdentificacion" class="table table-hover" style="width: 100%;">
                                 <%-- Aquí se carga el contenido dinámico de la tabla --%>
@@ -95,5 +94,4 @@
 
     <!-- ========== JavaScript ========== -->
     <script src="../JavaScript/Identificacion.js"></script>
-
 </asp:Content>

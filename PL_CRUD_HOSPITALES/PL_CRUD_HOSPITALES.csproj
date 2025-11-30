@@ -145,6 +145,7 @@
     <Content Include="Mantenimientos\assets\js\polyfill.js" />
     <Content Include="Mantenimientos\assets\js\world-merc.js" />
     <Content Include="Mantenimientos\enConstruccion.aspx" />
+    <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx" />
     <Content Include="Mantenimientos\frmPrincipal.aspx" />
@@ -167,6 +168,13 @@
     </Compile>
     <Compile Include="Mantenimientos\enConstruccion.aspx.designer.cs">
       <DependentUpon>enConstruccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaTiposConsultorio.aspx.cs">
+      <DependentUpon>frmConsultaTiposConsultorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaTiposConsultorio.aspx.designer.cs">
+      <DependentUpon>frmConsultaTiposConsultorio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
