@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mantenimientos/PrincipalMaster.Master" AutoEventWireup="true" CodeBehind="frmMantenimientoTiposIdentificacion.aspx.cs" Inherits="PL_CRUD_HOSPITALES.Mantenimientos.frmMantanimientoTiposIdentificacion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Mantenimientos/PrincipalMaster.Master" AutoEventWireup="true" CodeBehind="frmMantenimientoTiposConsultorio.aspx.cs" Inherits="PL_CRUD_HOSPITALES.Mantenimientos.frmMantenimientoTiposConsultorio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- ========== title-wrapper start ========== -->
     <div class="title-wrapper pt-30">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title mb-30">
-                    <h2>Mantenimiento de Tipo de Identificación</h2>
+                    <h2>Mantenimiento de Tipo de Consultorio</h2>
                 </div>
             </div>
             <div class="col-md-6">
@@ -20,7 +20,7 @@
                                 <a href="frmPrincipal.aspx">Dashboard</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="frmConsultaTiposIdentificacion.aspx">Tipos de Identificación</a>
+                                <a href="frmConsultaTiposConsultorio.aspx">Tipos de Consultorio</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 Mantenimiento
@@ -38,16 +38,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-style mb-30">
-                    <h6 class="mb-25">Información del Tipo de Identificación</h6>
-                    <form action="javascript: mantenimientoTipoIdentificacion()" method="post">
+                    <h6 class="mb-25">Información del Tipo de Consultorio</h6>
+                    <form action="javascript: mantenimientoTipoConsultorio()" method="post">
                         
                         <div class="row">
-                            <!-- Campo: Tipo de Identificación -->
+                            <!-- Campo: Tipo de Consultorio -->
                             <div class="col-md-6">
                                 <div class="input-style-1">
-                                    <label>Tipo de Identificación <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="txtTipo_Identificacion"
-                                        placeholder="Ej: Cédula, Pasaporte, DIMEX" 
+                                    <label>Tipo de Consultorio <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="txtTipo_Consultorio"
+                                        placeholder="Ej: Medicina General, Odontología" 
                                         maxlength="50" required />
                                 </div>
                             </div>
@@ -86,6 +86,5 @@
     <!-- ========== form-elements-wrapper end ========== -->
 
     <!-- ========== JavaScript ========== -->
-    <script src="../JavaScript/Identificacion.js"></script>
+    <script src="../JavaScript/Consultorio.js"></script>
 </asp:Content>
-

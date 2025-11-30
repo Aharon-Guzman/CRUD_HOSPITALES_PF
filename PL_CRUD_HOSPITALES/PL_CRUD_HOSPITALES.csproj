@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="JavaScript\Consultorio.js" />
     <Content Include="JavaScript\Identificacion.js" />
     <Content Include="JavaScript\InicioSesion.js" />
     <Content Include="JavaScript\jquery.cookie.js" />
@@ -147,6 +148,7 @@
     <Content Include="Mantenimientos\enConstruccion.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx" />
     <Content Include="Mantenimientos\frmPrincipal.aspx" />
     <Content Include="Web.config" />
@@ -182,6 +184,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx.cs">
+      <DependentUpon>frmMantenimientoTiposConsultorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoTiposConsultorio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx.cs">
       <DependentUpon>frmMantenimientoTiposIdentificacion.aspx</DependentUpon>

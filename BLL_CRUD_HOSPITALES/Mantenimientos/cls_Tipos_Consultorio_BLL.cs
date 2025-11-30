@@ -44,7 +44,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
 
                     //Agregar parámetros
                     //Orden: Nombre, Código Tipo de Dato, Valor
-                    obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Tipo_Identificacion", "7", obj_Tipos_Consultorio_DAL.sTipo_Consultorio);
+                    obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Tipo_Consultorio", "7", obj_Tipos_Consultorio_DAL.sTipo_Consultorio);
                     obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Estado", "7", obj_Tipos_Consultorio_DAL.sEstado);
 
                     //Definimos el SP
@@ -86,7 +86,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
 
                 //agregar al data table de parametros la lista de parametros que requiere el procedimiento almacenado
                 //Regla: Orden de valores del Parámetro: Nombre, Código Tipo de Dato, Valor
-                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdTipoIdentificacion", "1", obj_Tipos_Consultorio_DAL.iId_TipoConsultorio);
+                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdTipoConsultorio", "1", obj_Tipos_Consultorio_DAL.iId_TipoConsultorio);
 
                 //Definimos el nombre del Key que contiene el valor del procedimiento almacenado de la base de datos
                 obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_INFO_Tipos_Consultorio"];
@@ -116,7 +116,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
         }
 
         /// <summary>
-        /// Método para INSERTAR un nuevo tipo de identificación
+        /// Método para INSERTAR un nuevo tipo de consultorio
         /// </summary>
         public void crearTipos_Consultorio(ref cls_Tipos_Consultorio_DAL obj_Tipos_Consultorio_DAL)
         {
@@ -132,7 +132,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
 
                 //Agregar parámetros
                 //Orden: Nombre, Código Tipo de Dato, Valor
-                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Tipo_Identificacion", "6", obj_Tipos_Consultorio_DAL.sTipo_Consultorio);
+                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Tipo_Consultorio", "6", obj_Tipos_Consultorio_DAL.sTipo_Consultorio);
                 obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Estado", "6", obj_Tipos_Consultorio_DAL.sEstado);
                 obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdUsuario_Global", "1", obj_Tipos_Consultorio_DAL.iIdUsuarioGlobal);
 
@@ -163,7 +163,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
         }
 
         /// <summary>
-        /// Método para MODIFICAR un tipo de identificación existente
+        /// Método para MODIFICAR un tipo de consultorio existente
         /// </summary>
         public void modificarTipos_Consultorio(ref cls_Tipos_Consultorio_DAL obj_Tipos_Consultorio_DAL)
         {
@@ -178,8 +178,8 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                 obj_Tipos_Consultorio_DAL.dtParametros = obj_BD_BLL.ObtieneDTParametros(obj_Tipos_Consultorio_DAL.dtParametros);
 
                 //Agregar parámetros
-                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdTipoIdentificacion", "1", obj_Tipos_Consultorio_DAL.iId_TipoConsultorio);
-                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Tipo_Identificacion", "6", obj_Tipos_Consultorio_DAL.sTipo_Consultorio);
+                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdTipoConsultorio", "1", obj_Tipos_Consultorio_DAL.iId_TipoConsultorio);
+                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Tipo_Consultorio", "6", obj_Tipos_Consultorio_DAL.sTipo_Consultorio);
                 obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@Estado", "6", obj_Tipos_Consultorio_DAL.sEstado);
                 obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdUsuario_Global", "1", obj_Tipos_Consultorio_DAL.iIdUsuarioGlobal);
 
@@ -210,7 +210,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
         }
 
         /// <summary>
-        /// Método para ELIMINAR un tipo de identificación
+        /// Método para ELIMINAR un tipo de consultorio
         /// </summary>
         public void eliminarTipos_Consultorio(ref cls_Tipos_Consultorio_DAL obj_Tipos_Consultorio_DAL)
         {
@@ -225,7 +225,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                 obj_Tipos_Consultorio_DAL.dtParametros = obj_BD_BLL.ObtieneDTParametros(obj_Tipos_Consultorio_DAL.dtParametros);
 
                 //Agregar parámetros
-                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdTipoIdentificacion", "1", obj_Tipos_Consultorio_DAL.iId_TipoConsultorio);
+                obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdTipoConsultorio", "1", obj_Tipos_Consultorio_DAL.iId_TipoConsultorio);
                 obj_Tipos_Consultorio_DAL.dtParametros.Rows.Add("@IdUsuario_Global", "1", obj_Tipos_Consultorio_DAL.iIdUsuarioGlobal);
 
                 //Definir SP

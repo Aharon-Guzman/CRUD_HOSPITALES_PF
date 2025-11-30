@@ -9,7 +9,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="title mb-30">
-                    <h2>Gestión de Tipos de Identificación</h2>
+                    <h2>Gestión de Tipos de Consultorio</h2>
                 </div>
             </div>
             <div class="col-md-6">
@@ -22,7 +22,7 @@
                             <li class="breadcrumb-item">
                                 <a href="#0">Catálogos</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Tipos de Identificación
+                            <li class="breadcrumb-item active" aria-current="page">Tipos de Consultorio
                             </li>
                         </ol>
                     </nav>
@@ -38,13 +38,13 @@
                 <div class="col-lg-12">
                     <!-- ========== Formulario de Búsqueda ========== -->
                     <div class="card-style mb-30">
-                        <h6 class="mb-25">Búsqueda de Tipos de Identificación</h6>
-                        <form action="javascript: cargaListaTiposIdentificacion()" method="post" id="frmBusqueda">
+                        <h6 class="mb-25">Búsqueda de Tipos de Consultorio</h6>
+                        <form action="javascript: cargaListaTiposConsultorio()" method="post" id="frmBusqueda">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="input-style-1">
-                                        <label for="bsqTipo_Identificacion">Tipo de Identificación</label>
-                                        <input type="text" class="form-control" id="bsqTipo_Identificacion" placeholder="Ej: Cédula, Pasaporte, DIMEX" />
+                                        <label for="bsqTipo_Consultorio">Tipo de Consultorio</label>
+                                        <input type="text" class="form-control" id="bsqTipo_Consultorio" placeholder="Ej: Medicina General, Odontología" />
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -65,7 +65,7 @@
                                         <button type="submit" class="main-btn primary-btn btn-hover">
                                             <i class="lni lni-search-alt"></i>Buscar
                                         </button>
-                                        <button type="button" class="main-btn success-btn btn-hover ms-2" onclick="javascript: crearTipoIdentificacion()">
+                                        <button type="button" class="main-btn success-btn btn-hover ms-2" onclick="javascript: crearTipoConsultorio()">
                                             <i class="lni lni-plus"></i>Nuevo
                                         </button>
                                     </div>
@@ -78,9 +78,9 @@
                     <!-- ========== Tabla de Resultados ========== -->
                     <!-- ========== Tabla de Resultados ========== -->
                     <div class="card-style mb-30">
-                        <h6 class="mb-25">Listado de Tipos de Identificación</h6>
+                        <h6 class="mb-25">Listado de Tipos de Consultorio</h6>
                         <div class="table-wrapper table-responsive">
-                            <table id="tblTiposIdentificacion" class="table table-hover" style="width: 100%;">
+                            <table id="tblTiposConsultorio" class="table table-hover" style="width: 100%;">
                                 <%-- Aquí se carga el contenido dinámico de la tabla --%>
                             </table>
                         </div>
@@ -93,5 +93,5 @@
 
 
     <!-- ========== JavaScript ========== -->
-    <script src="../JavaScript/Identificacion.js"></script>
+    <script src="../JavaScript/Consultorio.js"></script>
 </asp:Content>
