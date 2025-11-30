@@ -143,15 +143,8 @@ function obtieneDetalleTipoIdentificacion() {
                     }
                     else {
                         if (resultado != "") {
-                            $("#txtTipoIdentificacion").val(arreglo[1]);
-                            $("#txtOfi").val(arreglo[2]);
-                            $("#txtTel").val(arreglo[3]);
-                            $("#txtEml").val(arreglo[4]);
-                            $("#txtFecFun").val(formatDate(arreglo[5]));
-                            $("#txtFecOpe").val(formatDate(arreglo[6]));
-                            $("#cboPais").val(arreglo[7]);
-                            $("#txtDir").val(arreglo[8]);
-                            $("#cboSts").val(arreglo[9]);
+                            $("#txtTipo_Identificacion").val(arreglo[1]);
+                            $("#cboEstado").val(arreglo[2]);
                         }
                     }
                 }
@@ -193,21 +186,14 @@ function mantenimientoTipoIdentificacion() {
     //Crear un objeto para almacenar la información del formulario
     var obj_Parametros_JS = new Array();
     obj_Parametros_JS[0] = $.cookie("IDEUNI");
-    obj_Parametros_JS[1] = $("#txtTipoIdentificacion").val();
-    obj_Parametros_JS[2] = $("#txtOfi").val();
-    obj_Parametros_JS[3] = $("#txtTel").val();
-    obj_Parametros_JS[4] = $("#txtEml").val();
-    obj_Parametros_JS[5] = $("#txtFecFun").val();
-    obj_Parametros_JS[6] = $("#txtFecOpe").val();
-    obj_Parametros_JS[7] = $("#cboPais").val();
-    obj_Parametros_JS[8] = $("#txtDir").val();
-    obj_Parametros_JS[9] = $("#cboSts").val();
-    obj_Parametros_JS[10] = $.cookie("GLBUNI");
+    obj_Parametros_JS[1] = $("#txtTipo_Identificacion").val();
+    obj_Parametros_JS[2] = $("#cboEstado").val();
+    obj_Parametros_JS[3] = $.cookie("GLBUNI");
 
     //Convirtiendo los valores del arreglo en un elemento de tipo JSON
     var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
     //Se consumen los métodos ajax de jquery para ejecutar un web Method del code behind
-    if ((obj_Parametros_JS[10] != 0) && (obj_Parametros_JS[10] != undefined)) {
+    if ((obj_Parametros_JS[3] != 0) && (obj_Parametros_JS[3] != undefined)) {
         jQuery.ajax({
             type: "POST",
             url: "frmMantenimientoTiposIdentificacion.aspx/MantenimientoTipoIdentificacion",

@@ -62,10 +62,10 @@
                             <div class="col-md-4">
                                 <div class="input-style-1">
                                     <label>&nbsp;</label>
-                                    <button type="submit" class="main-btn primary-btn btn-hover" <%--onclick="cargaListaTipos_Identificacion()"--%>>
+                                    <button type="submit" class="main-btn primary-btn btn-hover">
                                         <i class="lni lni-search-alt"></i> Buscar
                                     </button>
-                                    <button type="button" class="main-btn success-btn btn-hover ms-2" onclick="crearTipo_Identificacion()">
+                                    <button type="button" class="main-btn success-btn btn-hover ms-2" onclick="javascript: crearTipoIdentificacion()">
                                         <i class="lni lni-plus"></i> Nuevo
                                     </button>
                                 </div>

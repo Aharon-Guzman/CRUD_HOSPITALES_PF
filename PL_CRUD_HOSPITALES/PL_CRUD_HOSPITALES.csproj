@@ -146,6 +146,7 @@
     <Content Include="Mantenimientos\assets\js\world-merc.js" />
     <Content Include="Mantenimientos\enConstruccion.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx" />
     <Content Include="Mantenimientos\frmPrincipal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx.cs">
+      <DependentUpon>frmMantenimientoTiposIdentificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoTiposIdentificacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmPrincipal.aspx.cs">
       <DependentUpon>frmPrincipal.aspx</DependentUpon>

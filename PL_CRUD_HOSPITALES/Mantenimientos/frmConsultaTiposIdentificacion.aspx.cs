@@ -55,11 +55,11 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
 
                     for (int i = 0; i < obj_Tipos_Identificacion_DAL.dtDatos.Rows.Count; i++)
                     {
-                        _mensaje += "<tr><td style='cursor:pointer;' onclick='javascript: defineTipo_Identificacion(" + obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][0].ToString() + ")'>" +
+                        _mensaje += "<tr><td style='cursor:pointer;' onclick='javascript: defineTipoIdentificacion(" + obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][0].ToString() + ")'>" +
                             obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][0].ToString() + "</td>" +
                             "<td>" + obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][1].ToString() + "</td>" +
                             "<td>" + obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][2].ToString() + "</td>" +
-                            "<td style='text-align:center'><i class='lni lni-trash-can' onclick='javascript: eliminaTipo_Identificacion(" + obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][0].ToString() + ")' style='cursor:pointer'></i></td>" +
+                            "<td style='text-align:center'><i class='lni lni-trash-can' onclick='javascript: eliminaTipoIdentificacion(" + obj_Tipos_Identificacion_DAL.dtDatos.Rows[i][0].ToString() + ")' style='cursor:pointer'></i></td>" +
                             "</tr>";
                     }
 
