@@ -22,7 +22,7 @@
                      <a href="#0">Dashboard</a>
                    </li>
                    <li class="breadcrumb-item active" aria-current="page">
-                     eCommerce
+                     Principal
                    </li>
                  </ol>
                </nav>

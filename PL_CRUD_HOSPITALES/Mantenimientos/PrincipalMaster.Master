@@ -85,6 +85,7 @@
                 <li class="nav-item">
                     <a
                         href="frmPrincipal.aspx">
+
                         <%-- Solo este icono se mantiene original, para el resto de utiliza Glyps
                    Plantilla base:
              <span class="icon">

@@ -43,7 +43,7 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="input-style-1">
-                                    <label>Tipo de Identificación</label>
+                                    <label for="bsqTipo_Identificacion">Tipo de Identificación</label>
                                     <input type="text" class="form-control" id="bsqTipo_Identificacion" placeholder="Ej: Cédula, Pasaporte, DIMEX" />
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                             <div class="col-md-4">
                                 <div class="input-style-1">
                                     <label>&nbsp;</label>
-                                    <button type="button" class="main-btn primary-btn btn-hover" onclick="cargaListaTipos_Identificacion()">
+                                    <button type="submit" class="main-btn primary-btn btn-hover" <%--onclick="cargaListaTipos_Identificacion()"--%>>
                                         <i class="lni lni-search-alt"></i> Buscar
                                     </button>
                                     <button type="button" class="main-btn success-btn btn-hover ms-2" onclick="crearTipo_Identificacion()">
@@ -76,17 +76,15 @@
                 <!-- ========== Fin Formulario de Búsqueda ========== -->
 
                 <!-- ========== Tabla de Resultados ========== -->
-                <div class="card-style mb-30">
-                    <h6 class="mb-25">Listado de Tipos de Identificación</h6>
-<%--                    <div class="table-wrapper table-responsive" id="divTablaTipos_Identificacion">
-                        <!-- La tabla se carga dinámicamente desde JavaScript -->
-                  </div>--%>
-                    <div class="table-wrapper table-responsive">
-                       <table id="tblTiposIdentificacion">
-             <%--Aquí se carga el contenido dinámico de la tabla--%>
-                        </table>
-                    </div>
-                </div>
+<!-- ========== Tabla de Resultados ========== -->
+<div class="card-style mb-30">
+    <h6 class="mb-25">Listado de Tipos de Identificación</h6>
+    <div class="table-wrapper table-responsive">
+       <table id="tblTiposIdentificacion" class="table table-hover" style="width: 100%;">
+           <%-- Aquí se carga el contenido dinámico de la tabla --%>
+       </table>
+    </div>
+</div>
                 <!-- ========== Fin Tabla de Resultados ========== -->
             </div>
         </div>
