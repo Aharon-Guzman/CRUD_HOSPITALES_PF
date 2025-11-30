@@ -240,6 +240,44 @@
             </li>
 <%--Fin Administración --%>
 
+
+<%--Catalogos --%>
+            <li class="nav-item nav-item-has-children">
+                <a
+                    href="#0"
+                    class="collapsed"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#ddmenu_6"
+                    aria-controls="ddmenu_6"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="icon">
+                        <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="scale(1, -1) translate(0, -256)">
+                                <path d="M244 177.6V190.8C244 204.4 233.2 215.2 219.6 215.2H130.8L129.6 218.4C126.8 225.6 120 230 112.4 230H31.6C18 230 7.2 219.2 7.2 205.6V50C7.2 36.4 18 25.6 31.6 25.6H224.8C238.4 25.6 249.2 36.4 249.2 50V165.2C249.2 170 247.2 174.4 244 177.6zM219.6 197.6C223.2 197.6 226 194.8 226 191.2V183.6H143.6L138 197.6H219.6zM231.2 50C231.2 46.4 228.4 43.6 224.8 43.6H31.6C28 43.6 25.2 46.4 25.2 50V206C25.2 209.6 28 212.4 31.6 212.4L112.8 212L129.2 171.2C130.4 167.6 134 165.6 137.6 165.6H230.8S231.2 165.6 231.2 165.2V50z" />
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="text">Catálogos</span>
+                </a>
+                <ul id="ddmenu_6" class="collapse dropdown-nav">
+                    <li>
+                        <a href="enConstruccion.aspx">Tipos de Identificación</a>
+                    </li>
+                    <li>
+                        <a href="enConstruccion.aspx">Tipos de Consultorios</a>
+                    </li>
+                    <li>
+                        <a href="enConstruccion.aspx">Especialidades por Médico</a>
+                    </li>
+                    <li>
+                        <a href="enConstruccion.aspx">Tipos de Citas</a>
+                    </li>
+                </ul>
+            </li>
+
+            <%--FIN Catalogos --%>
+
             <span class="divider"><hr /></span>
 
 <%--Cerrar sesion --%>
