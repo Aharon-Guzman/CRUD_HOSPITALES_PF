@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DB\cls_BD_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Consultorio_BLL.cs" />
+    <Compile Include="Mantenimientos\cls_Tipos_Especialidad_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Identificacion_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Usuarios_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
