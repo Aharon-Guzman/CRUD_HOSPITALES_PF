@@ -275,7 +275,7 @@
                             <a href="frmConsultaTiposEspecialidad.aspx">Tipos de Especialidades</a>
                         </li>
                         <li>
-                            <a href="enConstruccion.aspx">Tipos de Citas</a>
+                            <a href="frmConsultaTiposCita.aspx">Tipos de Citas</a>
                         </li>
                     </ul>
                 </li>

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="JavaScript\Cita.js" />
     <Content Include="JavaScript\Especialidad.js" />
     <Content Include="JavaScript\Consultorio.js" />
     <Content Include="JavaScript\Identificacion.js" />
@@ -147,9 +148,11 @@
     <Content Include="Mantenimientos\assets\js\polyfill.js" />
     <Content Include="Mantenimientos\assets\js\world-merc.js" />
     <Content Include="Mantenimientos\enConstruccion.aspx" />
+    <Content Include="Mantenimientos\frmConsultaTiposCita.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoTiposCita.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx" />
@@ -174,6 +177,13 @@
     <Compile Include="Mantenimientos\enConstruccion.aspx.designer.cs">
       <DependentUpon>enConstruccion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\frmConsultaTiposCita.aspx.cs">
+      <DependentUpon>frmConsultaTiposCita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaTiposCita.aspx.designer.cs">
+      <DependentUpon>frmConsultaTiposCita.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposConsultorio.aspx.cs">
       <DependentUpon>frmConsultaTiposConsultorio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -194,6 +204,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoTiposCita.aspx.cs">
+      <DependentUpon>frmMantenimientoTiposCita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoTiposCita.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoTiposCita.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx.cs">
       <DependentUpon>frmMantenimientoTiposConsultorio.aspx</DependentUpon>

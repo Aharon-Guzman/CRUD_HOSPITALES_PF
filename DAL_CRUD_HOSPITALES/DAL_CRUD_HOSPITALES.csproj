@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\cls_BD_DAL.cs" />
+    <Compile Include="Mantenimientos\cls_Tipos_Cita_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Consultorio_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Especialidad_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Identificacion_DAL.cs" />
