@@ -44,7 +44,7 @@
                             <div class="col-md-5">
                                 <div class="input-style-1">
                                     <label for="bsqDescripcion">Descripción del Hospital</label>
-                                    <input type="text" class="form-control" id="bsqDescripcion" placeholder="Ej: Hospital Nacional" />
+                                    <input type="text" class="form-control" id="bsqDescripcion" placeholder="Ej: Hospital Nacional de Niños" />
                                 </div>
                             </div>
                             <div class="col-md-3">

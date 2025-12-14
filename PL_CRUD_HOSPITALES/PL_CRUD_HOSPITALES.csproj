@@ -154,6 +154,7 @@
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoHospitales.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposCita.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposEspecialidad.aspx" />
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoHospitales.aspx.cs">
+      <DependentUpon>frmMantenimientoHospitales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoHospitales.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoHospitales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoTiposCita.aspx.cs">
       <DependentUpon>frmMantenimientoTiposCita.aspx</DependentUpon>

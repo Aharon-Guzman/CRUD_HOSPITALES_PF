@@ -143,14 +143,14 @@ function obtieneDetalleHospital() {
                     }
                     else {
                         if (resultado != "") {
-                            $("#txtHospital").val(arreglo[1]);
-                            $("#txtOfi").val(arreglo[2]);
-                            $("#txtTel").val(arreglo[3]);
-                            $("#txtEml").val(arreglo[4]);
-                            $("#txtFecFun").val(formatDate(arreglo[5]));
-                            $("#txtFecOpe").val(formatDate(arreglo[6]));
-                            $("#cboPais").val(arreglo[7]);
-                            $("#txtDir").val(arreglo[8]);
+                            $("#txtCod_Hospital").val(arreglo[1]);
+                            $("#txtDescripcion").val(arreglo[2]);
+                            $("#txtDireccion").val(arreglo[3]);
+                            $("#txtTelefono").val(arreglo[4]);
+                            $("#txtCorreo").val(arreglo[5]);
+                            $("#txtWeb").val(arreglo[6]);
+                            $("#txtArea").val(arreglo[7]);
+                            $("#txtFecha_Construccion").val(formatDate(arreglo[8]));
                             $("#cboSts").val(arreglo[9]);
                         }
                     }
@@ -193,14 +193,14 @@ function mantenimientoHospital() {
     //Crear un objeto para almacenar la información del formulario
     var obj_Parametros_JS = new Array();
     obj_Parametros_JS[0] = $.cookie("HOSUNI");
-    obj_Parametros_JS[1] = $("#txtHospital").val();
-    obj_Parametros_JS[2] = $("#txtOfi").val();
-    obj_Parametros_JS[3] = $("#txtTel").val();
-    obj_Parametros_JS[4] = $("#txtEml").val();
-    obj_Parametros_JS[5] = $("#txtFecFun").val();
-    obj_Parametros_JS[6] = $("#txtFecOpe").val();
-    obj_Parametros_JS[7] = $("#cboPais").val();
-    obj_Parametros_JS[8] = $("#txtDir").val();
+    obj_Parametros_JS[1] = $("#txtCod_Hospital").val();
+    obj_Parametros_JS[2] = $("#txtDescripcion").val();
+    obj_Parametros_JS[3] = $("#txtDireccion").val();
+    obj_Parametros_JS[4] = $("#txtTelefono").val();
+    obj_Parametros_JS[5] = $("#txtCorreo").val();
+    obj_Parametros_JS[6] = $("#txtWeb").val();
+    obj_Parametros_JS[7] = $("#txtArea").val();
+    obj_Parametros_JS[8] = $("#txtFecha_Construccion").val();
     obj_Parametros_JS[9] = $("#cboSts").val();
     obj_Parametros_JS[10] = $.cookie("GLBUNI");
 
