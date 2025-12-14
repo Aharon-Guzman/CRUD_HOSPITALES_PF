@@ -71,6 +71,7 @@
     <Content Include="JavaScript\Cita.js" />
     <Content Include="JavaScript\Especialidad.js" />
     <Content Include="JavaScript\Consultorio.js" />
+    <Content Include="JavaScript\Hospital.js" />
     <Content Include="JavaScript\Identificacion.js" />
     <Content Include="JavaScript\InicioSesion.js" />
     <Content Include="JavaScript\jquery.cookie.js" />
@@ -148,6 +149,7 @@
     <Content Include="Mantenimientos\assets\js\polyfill.js" />
     <Content Include="Mantenimientos\assets\js\world-merc.js" />
     <Content Include="Mantenimientos\enConstruccion.aspx" />
+    <Content Include="Mantenimientos\frmConsultaHospitales.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposCita.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposEspecialidad.aspx" />
@@ -176,6 +178,13 @@
     </Compile>
     <Compile Include="Mantenimientos\enConstruccion.aspx.designer.cs">
       <DependentUpon>enConstruccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaHospitales.aspx.cs">
+      <DependentUpon>frmConsultaHospitales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaHospitales.aspx.designer.cs">
+      <DependentUpon>frmConsultaHospitales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposCita.aspx.cs">
       <DependentUpon>frmConsultaTiposCita.aspx</DependentUpon>
