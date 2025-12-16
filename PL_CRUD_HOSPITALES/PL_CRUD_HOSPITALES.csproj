@@ -72,6 +72,7 @@
     <Content Include="JavaScript\Consultorios.js" />
     <Content Include="JavaScript\Especialidad.js" />
     <Content Include="JavaScript\Consultorio.js" />
+    <Content Include="JavaScript\Especialidades.js" />
     <Content Include="JavaScript\Hospital.js" />
     <Content Include="JavaScript\Identificacion.js" />
     <Content Include="JavaScript\InicioSesion.js" />
@@ -152,6 +153,7 @@
     <Content Include="Mantenimientos\assets\js\polyfill.js" />
     <Content Include="Mantenimientos\assets\js\world-merc.js" />
     <Content Include="Mantenimientos\enConstruccion.aspx" />
+    <Content Include="Mantenimientos\frmAsignarEspecialidades.aspx" />
     <Content Include="Mantenimientos\frmConsultaConsultorios.aspx" />
     <Content Include="Mantenimientos\frmConsultaHospitales.aspx" />
     <Content Include="Mantenimientos\frmConsultaMedicos.aspx" />
@@ -188,6 +190,13 @@
     </Compile>
     <Compile Include="Mantenimientos\enConstruccion.aspx.designer.cs">
       <DependentUpon>enConstruccion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmAsignarEspecialidades.aspx.cs">
+      <DependentUpon>frmAsignarEspecialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmAsignarEspecialidades.aspx.designer.cs">
+      <DependentUpon>frmAsignarEspecialidades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaConsultorios.aspx.cs">
       <DependentUpon>frmConsultaConsultorios.aspx</DependentUpon>

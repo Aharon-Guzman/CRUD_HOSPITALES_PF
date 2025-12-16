@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DB\cls_BD_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Consultorios_BLL.cs" />
+    <Compile Include="Mantenimientos\cls_Especialidades_X_Medicos_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Hospitales_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Medicos_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Pacientes_BLL.cs" />
