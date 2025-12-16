@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace DAL_CRUD_HOSPITALES.Mantenimientos
 {
-    public class cls_Especialidades_X_Medicos_DAL
+    public class cls_Citas_DAL
     {
         #region Atributos Privados de la Entidad
-        // Campos de la tabla Consultorios
-        private int _iId_Especialidad_Medico;
+
+        // Campos de la tabla Citas (7 campos)
+        private int _iId_Cita;
+        private int _iId_TipoCita;
         private int _iId_Medico;
-        private int _iId_TipoEspecialidad;
+        private int _iId_Paciente;
+        private int _iId_Consultorio;
+        private DateTime _dFecha;
+        private string _sEstado;
+
         // Campos auxiliares (presentes en todas las clases DAL)
         private string _sValorScalar;
         private string _sAXN;
@@ -26,9 +32,13 @@ namespace DAL_CRUD_HOSPITALES.Mantenimientos
 
         #region Propiedades Públicas de la Entidad
 
-        public int iId_Especialidad_Medico { get => _iId_Especialidad_Medico; set => _iId_Especialidad_Medico = value; }
+        public int iId_Cita { get => _iId_Cita; set => _iId_Cita = value; }
+        public int iId_TipoCita { get => _iId_TipoCita; set => _iId_TipoCita = value; }
         public int iId_Medico { get => _iId_Medico; set => _iId_Medico = value; }
-        public int iId_TipoEspecialidad { get => _iId_TipoEspecialidad; set => _iId_TipoEspecialidad = value; }
+        public int iId_Paciente { get => _iId_Paciente; set => _iId_Paciente = value; }
+        public int iId_Consultorio { get => _iId_Consultorio; set => _iId_Consultorio = value; }
+        public DateTime dFecha { get => _dFecha; set => _dFecha = value; }
+        public string sEstado { get => _sEstado; set => _sEstado = value; }
 
         public string sValorScalar { get => _sValorScalar; set => _sValorScalar = value; }
         public string sAXN { get => _sAXN; set => _sAXN = value; }
