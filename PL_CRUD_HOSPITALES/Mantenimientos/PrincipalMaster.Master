@@ -169,9 +169,6 @@
                         <li>
                             <a href="frmConsultaMedicos.aspx">Médicos</a>
                         </li>
-                        <li>
-                            <a href="enConstruccion.aspx">Especialidades por Médico</a>
-                        </li>
                     </ul>
                 </li>
                 <%--Fin Personal Medico --%>
