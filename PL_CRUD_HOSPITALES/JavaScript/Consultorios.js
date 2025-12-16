@@ -6,7 +6,7 @@
 
     //Evaluamos la página en la que estamos para determinar si ejecuto o no una función o proceso específico
     var pageName = window.location.pathname.split('/').pop();
-
+    //Esperamos 1.5 segundos para cargar la información de los combos y luego cargar la lista de consultorios o el detalle del consultorio
     if (pageName == "frmConsultaConsultorios.aspx") {
         setTimeout(function (){
             cargaListaConsultorios();
