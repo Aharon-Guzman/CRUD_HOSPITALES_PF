@@ -399,7 +399,10 @@ function mantenimientoMedico() {
 
 }
 
-
+function especialidadesMedico(uni) {
+    $.cookie("MEDUNI", uni, { expires: TLTC, path: '/', domain: g_Dominio });
+    location.href = "frmAsignarEspecialidades.aspx";
+}
 function eliminaMedico(uni) {
     //Crear un objeto para almacenar la información del formulario
     var obj_Parametros_JS = new Array();

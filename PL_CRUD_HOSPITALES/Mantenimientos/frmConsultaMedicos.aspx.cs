@@ -49,6 +49,7 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
                         "<th>Identificación</th>" +
                         "<th>Teléfono</th>" +
                         "<th>Correo</th>" +
+                        "<th style='text-align:center'>Especialidad</th>" +
                         "<th style='text-align:center'>Eliminar</th>" +
                         "</tr>" +
                         "</thead>" +
@@ -63,6 +64,7 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
                             "<td>" + obj_Medicos_DAL.dtDatos.Rows[i][3].ToString() + "</td>" +
                             "<td>" + obj_Medicos_DAL.dtDatos.Rows[i][4].ToString() + "</td>" +
                             "<td>" + obj_Medicos_DAL.dtDatos.Rows[i][5].ToString() + "</td>" +
+                            "<td style='text-align:center'><i class='lni lni-certificate' onclick='javascript: especialidadesMedico(" + obj_Medicos_DAL.dtDatos.Rows[i][0].ToString() + ")' style='cursor:pointer'></i></td>" +
                             "<td style='text-align:center'><i class='lni lni-trash-can' onclick='javascript: eliminaMedico(" + obj_Medicos_DAL.dtDatos.Rows[i][0].ToString() + ")' style='cursor:pointer'></i></td>" +
                             "</tr>";
                     }
