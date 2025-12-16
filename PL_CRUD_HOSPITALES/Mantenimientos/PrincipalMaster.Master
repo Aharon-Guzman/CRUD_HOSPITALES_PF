@@ -197,7 +197,7 @@
                     </a>
                     <ul id="ddmenu_4" class="collapse dropdown-nav">
                         <li>
-                            <a href="enConstruccion.aspx">Pacientes</a>
+                            <a href="frmConsultaPacientes.aspx">Pacientes</a>
                         </li>
                         <li>
                             <a href="enConstruccion.aspx">Citas Médicas</a>
