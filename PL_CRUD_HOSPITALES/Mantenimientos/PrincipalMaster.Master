@@ -140,7 +140,7 @@
                             <a href="frmConsultaHospitales.aspx">Hospitales </a>
                         </li>
                         <li>
-                            <a href="enConstruccion.aspx">Consultorios </a>
+                            <a href="frmConsultaConsultorios.aspx">Consultorios </a>
                         </li>
                     </ul>
                 </li>
