@@ -76,6 +76,7 @@
     <Content Include="JavaScript\Identificacion.js" />
     <Content Include="JavaScript\InicioSesion.js" />
     <Content Include="JavaScript\jquery.cookie.js" />
+    <Content Include="JavaScript\Medicos.js" />
     <Content Include="Login\css\login.css" />
     <Content Include="Login\frmInicioSesion.aspx" />
     <Content Include="Login\js\jquery.min.js" />
@@ -152,12 +153,14 @@
     <Content Include="Mantenimientos\enConstruccion.aspx" />
     <Content Include="Mantenimientos\frmConsultaConsultorios.aspx" />
     <Content Include="Mantenimientos\frmConsultaHospitales.aspx" />
+    <Content Include="Mantenimientos\frmConsultaMedicos.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposCita.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoConsultorios.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoHospitales.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoMedicos.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposCita.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposEspecialidad.aspx" />
@@ -196,6 +199,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaHospitales.aspx.designer.cs">
       <DependentUpon>frmConsultaHospitales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaMedicos.aspx.cs">
+      <DependentUpon>frmConsultaMedicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaMedicos.aspx.designer.cs">
+      <DependentUpon>frmConsultaMedicos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposCita.aspx.cs">
       <DependentUpon>frmConsultaTiposCita.aspx</DependentUpon>
@@ -238,6 +248,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoHospitales.aspx.designer.cs">
       <DependentUpon>frmMantenimientoHospitales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoMedicos.aspx.cs">
+      <DependentUpon>frmMantenimientoMedicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoMedicos.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoMedicos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoTiposCita.aspx.cs">
       <DependentUpon>frmMantenimientoTiposCita.aspx</DependentUpon>
