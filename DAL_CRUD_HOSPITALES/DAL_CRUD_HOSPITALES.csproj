@@ -45,6 +45,7 @@
     <Compile Include="Mantenimientos\cls_Consultorios_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Hospitales_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Medicos_DAL.cs" />
+    <Compile Include="Mantenimientos\cls_Pacientes_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Cita_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Consultorio_DAL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Especialidad_DAL.cs" />
