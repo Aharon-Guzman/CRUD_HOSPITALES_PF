@@ -136,7 +136,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                     obj_Usuarios_DAL.dtParametros.Rows.Add("@Estado", "6", obj_Usuarios_DAL.sEstado);
 
                     //Definimos el nombre del Key que contiene el valor del procedimiento almacenado
-                    obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_FILL_Usuarios"];
+                    obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_FIL_Usuarios"];
                     //Le asignamos al DT Parametros de BD_DAL la lista de parametros construida en el objeto en cuestión
                     obj_BD_DAL.DT_Parametros = obj_Usuarios_DAL.dtParametros;
                     //Definimos un nombre de tabla lógico 
@@ -284,7 +284,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                 obj_Usuarios_DAL.dtParametros.Rows.Add("@IdUsuario_Global", "1", obj_Usuarios_DAL.iIdUsuarioGlobal);
 
                 //Definimos el nombre del Key que contiene el valor del procedimiento almacenado
-                obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_Elim_Usuarios"];
+                obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_Delete_Usuarios"];
                 //Determinar el tipo de axión a ejecutar
                 obj_BD_DAL.sIndAxn = "SCALAR";
                 //Le asignamos al DT Parametros de BD_DAL la lista de parametros construida en el objeto en cuestión

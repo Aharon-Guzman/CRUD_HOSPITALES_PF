@@ -91,8 +91,8 @@
                                     <label>Estado <span class="text-danger">*</span></label>
                                     <div class="select-position">
                                         <select id="cboEstado" required>
-                                            <option value="A">Activo</option>
-                                            <option value="I">Inactivo</option>
+                                            <option value="Activo">Activo</option>
+                                            <option value="Inactivo">Inactivo</option>
                                         </select>
                                     </div>
                                 </div>

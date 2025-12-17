@@ -79,6 +79,7 @@
     <Content Include="JavaScript\InicioSesion.js" />
     <Content Include="JavaScript\jquery.cookie.js" />
     <Content Include="JavaScript\Medicos.js" />
+    <Content Include="JavaScript\ModulosXUsuario.js" />
     <Content Include="JavaScript\Pacientes.js" />
     <Content Include="JavaScript\Usuarios.js" />
     <Content Include="Login\css\login.css" />
@@ -170,6 +171,7 @@
     <Content Include="Mantenimientos\frmMantenimientoConsultorios.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoHospitales.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoMedicos.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoModulosXUsuario.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoPacientes.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposCita.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx" />
@@ -301,6 +303,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoMedicos.aspx.designer.cs">
       <DependentUpon>frmMantenimientoMedicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoModulosXUsuario.aspx.cs">
+      <DependentUpon>frmMantenimientoModulosXUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoModulosXUsuario.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoModulosXUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoPacientes.aspx.cs">
       <DependentUpon>frmMantenimientoPacientes.aspx</DependentUpon>
