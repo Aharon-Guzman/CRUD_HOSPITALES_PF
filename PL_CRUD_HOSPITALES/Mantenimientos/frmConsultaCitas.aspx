@@ -103,6 +103,9 @@
                                     <button type="submit" class="main-btn primary-btn btn-hover">
                                         <i class="lni lni-search-alt"></i>Buscar
                                     </button>
+                                    <button type="button" class="main-btn success-btn btn-hover ms-2" onclick="javascript: volverPacientes()">
+                                        <i class="lni lni-plus"></i>Ir a Pacientes
+                                    </button>
                                 </div>
                             </div>
                         </div>

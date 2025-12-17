@@ -627,6 +627,16 @@ function regresar() {
     }
 }
 
+function volverPacientes() {
+    var pacienteId = $.cookie("PACUNI");
+
+    if (pacienteId && pacienteId != 0) {
+        location.href = "frmConsultaPacientes.aspx";
+    } else {
+        location.href = "frmConsultaPacientes.aspx";
+    }
+}
+
 function eliminaCita(uni) {
     var obj_Parametros_JS = new Array();
     obj_Parametros_JS[0] = uni;
