@@ -48,6 +48,8 @@
     <Compile Include="Mantenimientos\cls_Especialidades_X_Medicos_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Hospitales_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Medicos_BLL.cs" />
+    <Compile Include="Mantenimientos\cls_ModulosXUsuario_BLL.cs" />
+    <Compile Include="Mantenimientos\cls_Modulos_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Pacientes_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Cita_BLL.cs" />
     <Compile Include="Mantenimientos\cls_Tipos_Consultorio_BLL.cs" />

@@ -80,6 +80,7 @@
     <Content Include="JavaScript\jquery.cookie.js" />
     <Content Include="JavaScript\Medicos.js" />
     <Content Include="JavaScript\Pacientes.js" />
+    <Content Include="JavaScript\Usuarios.js" />
     <Content Include="Login\css\login.css" />
     <Content Include="Login\frmInicioSesion.aspx" />
     <Content Include="Login\js\jquery.min.js" />
@@ -164,6 +165,7 @@
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmConsultaUsuarios.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoCitas.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoConsultorios.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoHospitales.aspx" />
@@ -173,6 +175,7 @@
     <Content Include="Mantenimientos\frmMantenimientoTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoUsuarios.aspx" />
     <Content Include="Mantenimientos\frmPrincipal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -264,6 +267,13 @@
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\frmConsultaUsuarios.aspx.cs">
+      <DependentUpon>frmConsultaUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaUsuarios.aspx.designer.cs">
+      <DependentUpon>frmConsultaUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoCitas.aspx.cs">
       <DependentUpon>frmMantenimientoCitas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +336,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmMantenimientoTiposIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoUsuarios.aspx.cs">
+      <DependentUpon>frmMantenimientoUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoUsuarios.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmPrincipal.aspx.cs">
       <DependentUpon>frmPrincipal.aspx</DependentUpon>
