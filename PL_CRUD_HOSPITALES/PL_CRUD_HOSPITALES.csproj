@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="JavaScript\Cita.js" />
+    <Content Include="JavaScript\Citas.js" />
     <Content Include="JavaScript\Consultorios.js" />
     <Content Include="JavaScript\Especialidad.js" />
     <Content Include="JavaScript\Consultorio.js" />
@@ -154,6 +155,7 @@
     <Content Include="Mantenimientos\assets\js\world-merc.js" />
     <Content Include="Mantenimientos\enConstruccion.aspx" />
     <Content Include="Mantenimientos\frmAsignarEspecialidades.aspx" />
+    <Content Include="Mantenimientos\frmConsultaCitas.aspx" />
     <Content Include="Mantenimientos\frmConsultaConsultorios.aspx" />
     <Content Include="Mantenimientos\frmConsultaHospitales.aspx" />
     <Content Include="Mantenimientos\frmConsultaMedicos.aspx" />
@@ -162,6 +164,7 @@
     <Content Include="Mantenimientos\frmConsultaTiposConsultorio.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposEspecialidad.aspx" />
     <Content Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx" />
+    <Content Include="Mantenimientos\frmMantenimientoCitas.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoConsultorios.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoHospitales.aspx" />
     <Content Include="Mantenimientos\frmMantenimientoMedicos.aspx" />
@@ -197,6 +200,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmAsignarEspecialidades.aspx.designer.cs">
       <DependentUpon>frmAsignarEspecialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaCitas.aspx.cs">
+      <DependentUpon>frmConsultaCitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaCitas.aspx.designer.cs">
+      <DependentUpon>frmConsultaCitas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaConsultorios.aspx.cs">
       <DependentUpon>frmConsultaConsultorios.aspx</DependentUpon>
@@ -253,6 +263,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaTiposIdentificacion.aspx.designer.cs">
       <DependentUpon>frmConsultaTiposIdentificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoCitas.aspx.cs">
+      <DependentUpon>frmMantenimientoCitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmMantenimientoCitas.aspx.designer.cs">
+      <DependentUpon>frmMantenimientoCitas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmMantenimientoConsultorios.aspx.cs">
       <DependentUpon>frmMantenimientoConsultorios.aspx</DependentUpon>

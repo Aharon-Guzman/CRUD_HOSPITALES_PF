@@ -19,6 +19,9 @@ namespace DAL_CRUD_HOSPITALES.Mantenimientos
         private int _iId_Consultorio;
         private DateTime _dFecha;
         private string _sEstado;
+        private string _sNombrePaciente;
+        private string _sApellidoPaciente;
+        private string _sNombreMedico;
 
         // Campos auxiliares (presentes en todas las clases DAL)
         private string _sValorScalar;
@@ -39,6 +42,9 @@ namespace DAL_CRUD_HOSPITALES.Mantenimientos
         public int iId_Consultorio { get => _iId_Consultorio; set => _iId_Consultorio = value; }
         public DateTime dFecha { get => _dFecha; set => _dFecha = value; }
         public string sEstado { get => _sEstado; set => _sEstado = value; }
+        public string sNombrePaciente { get => _sNombrePaciente; set => _sNombrePaciente = value; }
+        public string sApellidoPaciente { get => _sApellidoPaciente; set => _sApellidoPaciente = value; }
+        public string sNombreMedico { get => _sNombreMedico; set => _sNombreMedico = value; }
 
         public string sValorScalar { get => _sValorScalar; set => _sValorScalar = value; }
         public string sAXN { get => _sAXN; set => _sAXN = value; }

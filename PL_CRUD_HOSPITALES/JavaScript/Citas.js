@@ -1,36 +1,76 @@
 ﻿$(document).ready(function () {
-    cargaTiposIdentificacionCombo();
-    cargaTiposIdentificacionComboMantenimiento();
-
     var pageName = window.location.pathname.split('/').pop();
 
-    if (pageName == "frmConsultaPacientes.aspx") {
-        setTimeout(function (){
-            cargaListaPacientes();
+    if (pageName == "frmConsultaCitas.aspx") {
+        // Cargar combos de BÚSQUEDA
+        cargaConsultoriosCombo();
+        cargaTiposCitaCombo();
+
+        setTimeout(function () {
+            cargaListaCitas();
         }, 1500);
     }
-    else if (pageName == "frmMantenimientoPacientes.aspx") {
+    else if (pageName == "frmMantenimientoCitas.aspx") {
+        // Cargar combos de MANTENIMIENTO primero
+        cargaMedicosCombo();
+        cargaConsultoriosComboMantenimiento();
+        cargaTiposCitaComboMantenimiento();
+
+        // Esperar a que los combos carguen
         setTimeout(function () {
-            obtieneDetallePaciente();
+            var citaId = $.cookie("CITAUNI");
+            var pacienteId = $.cookie("PACUNI");
+
+            if (citaId && citaId != 0) {
+                // EDITAR cita existente
+                obtieneDetalleCita();
+            } else if (pacienteId && pacienteId != 0) {
+                // CREAR cita desde Pacientes
+                cargaNombrePaciente(pacienteId);
+            }
         }, 1500);
     }
 });
 
-function citasPaciente(uni) {
-    $.cookie("PACUNI", uni, { expires: TLTC, path: '/', domain: g_Dominio });
-    location.href = "frmMantenimientoCitas.aspx";
+function cargaNombrePaciente(idPaciente) {
+    var obj_Parametros_JS = new Array();
+    obj_Parametros_JS[0] = idPaciente;
+
+    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
+
+    jQuery.ajax({
+        type: "POST",
+        url: "frmMantenimientoCitas.aspx/CargaNombrePaciente",
+        data: parametros,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        success: function (msg) {
+            var res = msg.d;
+
+            if (res === undefined || res === "Paciente no encontrado") {
+                Swal.fire({
+                    title: "Error",
+                    text: "No se pudo cargar la información del paciente",
+                    icon: "error"
+                });
+            }
+            else {
+                $("#txtNombrePaciente").val(res);
+                $("#hiddenIdPaciente").val(idPaciente);
+                $("#tituloMantenimiento").html("Nueva Cita para <span class='text-primary'>" + res + "</span>");
+            }
+        },
+        failure: function (msg) {
+
+        },
+        error: function (msg) {
+
+        }
+    });
 }
 
-function crearPaciente() {
-    $.cookie("PACUNI", 0, { expires: TLTC, path: '/', domain: g_Dominio });
-    location.href = "frmMantenimientoPacientes.aspx";
-}
-
-function regresar() {
-    location.href = "frmConsultaPacientes.aspx";
-}
-
-function cargaTiposIdentificacionCombo() {
+function cargaMedicosCombo() {
     var obj_Parametros_JS = new Array();
     obj_Parametros_JS[0] = $.cookie("GLBUNI");
 
@@ -39,7 +79,7 @@ function cargaTiposIdentificacionCombo() {
     if ((obj_Parametros_JS[0] != 0) && (obj_Parametros_JS[0] != undefined)) {
         jQuery.ajax({
             type: "POST",
-            url: "frmConsultaPacientes.aspx/CargaListaTiposIdentificacionCombo",
+            url: "frmMantenimientoCitas.aspx/CargaListaMedicosCombo",
             data: parametros,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -55,7 +95,7 @@ function cargaTiposIdentificacionCombo() {
                     });
                 }
                 else {
-                    $("#bsqTipoIdentificacion").html(res);
+                    $("#cboMedico").html(res);
                 }
             },
             failure: function (msg) {
@@ -82,21 +122,16 @@ function cargaTiposIdentificacionCombo() {
     }
 }
 
-function cargaListaPacientes() {
-    $.cookie("PACUNI", 0, { expires: TLTC, path: '/', domain: g_Dominio });
-
+function cargaConsultoriosCombo() {
     var obj_Parametros_JS = new Array();
-    obj_Parametros_JS[0] = $("#bsqNombre").val();
-    obj_Parametros_JS[1] = $("#bsqApellido").val();
-    obj_Parametros_JS[2] = $("#bsqTipoIdentificacion").val();
-    obj_Parametros_JS[3] = $.cookie("GLBUNI");
+    obj_Parametros_JS[0] = $.cookie("GLBUNI");
 
     var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
 
-    if ((obj_Parametros_JS[3] != 0) && (obj_Parametros_JS[3] != undefined)) {
+    if ((obj_Parametros_JS[0] != 0) && (obj_Parametros_JS[0] != undefined)) {
         jQuery.ajax({
             type: "POST",
-            url: "frmConsultaPacientes.aspx/CargaListaPacientes",
+            url: "frmConsultaCitas.aspx/CargaListaConsultoriosCombo",
             data: parametros,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -112,10 +147,224 @@ function cargaListaPacientes() {
                     });
                 }
                 else {
+                    $("#bsqConsultorio").html(res);
+                }
+            },
+            failure: function (msg) {
 
+            },
+            error: function (msg) {
+
+            }
+        });
+    }
+    else {
+        Swal.fire({
+            position: 'center-center',
+            icon: 'error',
+            title: "Error en la conexión",
+            text: "No se ha podido validar la información del usuario. Por favor, inicie sesión en el sistema",
+            showConfirmButton: false,
+            timer: 4500,
+            timerProgressBar: true
+        });
+        setTimeout(function () {
+            location.href = "../Login/frmInicioSesion.aspx";
+        }, 4000);
+    }
+}
+
+function cargaConsultoriosComboMantenimiento() {
+    var obj_Parametros_JS = new Array();
+    obj_Parametros_JS[0] = $.cookie("GLBUNI");
+
+    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
+
+    if ((obj_Parametros_JS[0] != 0) && (obj_Parametros_JS[0] != undefined)) {
+        jQuery.ajax({
+            type: "POST",
+            url: "frmMantenimientoCitas.aspx/CargaListaConsultoriosCombo",
+            data: parametros,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (msg) {
+                var res = msg.d;
+
+                if (res === undefined) {
+                    Swal.fire({
+                        title: "Error en la conexión",
+                        text: "Error de conexión a la base de datos",
+                        icon: "error"
+                    });
+                }
+                else {
+                    $("#cboConsultorio").html(res);
+                }
+            },
+            failure: function (msg) {
+
+            },
+            error: function (msg) {
+
+            }
+        });
+    }
+    else {
+        Swal.fire({
+            position: 'center-center',
+            icon: 'error',
+            title: "Error en la conexión",
+            text: "No se ha podido validar la información del usuario. Por favor, inicie sesión en el sistema",
+            showConfirmButton: false,
+            timer: 4500,
+            timerProgressBar: true
+        });
+        setTimeout(function () {
+            location.href = "../Login/frmInicioSesion.aspx";
+        }, 4000);
+    }
+}
+
+function cargaTiposCitaCombo() {
+    var obj_Parametros_JS = new Array();
+    obj_Parametros_JS[0] = $.cookie("GLBUNI");
+
+    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
+
+    if ((obj_Parametros_JS[0] != 0) && (obj_Parametros_JS[0] != undefined)) {
+        jQuery.ajax({
+            type: "POST",
+            url: "frmConsultaCitas.aspx/CargaListaTiposCitaCombo",
+            data: parametros,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (msg) {
+                var res = msg.d;
+
+                if (res === undefined) {
+                    Swal.fire({
+                        title: "Error en la conexión",
+                        text: "Error de conexión a la base de datos",
+                        icon: "error"
+                    });
+                }
+                else {
+                    $("#bsqTipoCita").html(res);
+                }
+            },
+            failure: function (msg) {
+
+            },
+            error: function (msg) {
+
+            }
+        });
+    }
+    else {
+        Swal.fire({
+            position: 'center-center',
+            icon: 'error',
+            title: "Error en la conexión",
+            text: "No se ha podido validar la información del usuario. Por favor, inicie sesión en el sistema",
+            showConfirmButton: false,
+            timer: 4500,
+            timerProgressBar: true
+        });
+        setTimeout(function () {
+            location.href = "../Login/frmInicioSesion.aspx";
+        }, 4000);
+    }
+}
+
+function cargaTiposCitaComboMantenimiento() {
+    var obj_Parametros_JS = new Array();
+    obj_Parametros_JS[0] = $.cookie("GLBUNI");
+
+    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
+
+    if ((obj_Parametros_JS[0] != 0) && (obj_Parametros_JS[0] != undefined)) {
+        jQuery.ajax({
+            type: "POST",
+            url: "frmMantenimientoCitas.aspx/CargaListaTiposCitaCombo",
+            data: parametros,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (msg) {
+                var res = msg.d;
+
+                if (res === undefined) {
+                    Swal.fire({
+                        title: "Error en la conexión",
+                        text: "Error de conexión a la base de datos",
+                        icon: "error"
+                    });
+                }
+                else {
+                    $("#cboTipoCita").html(res);
+                }
+            },
+            failure: function (msg) {
+
+            },
+            error: function (msg) {
+
+            }
+        });
+    }
+    else {
+        Swal.fire({
+            position: 'center-center',
+            icon: 'error',
+            title: "Error en la conexión",
+            text: "No se ha podido validar la información del usuario. Por favor, inicie sesión en el sistema",
+            showConfirmButton: false,
+            timer: 4500,
+            timerProgressBar: true
+        });
+        setTimeout(function () {
+            location.href = "../Login/frmInicioSesion.aspx";
+        }, 4000);
+    }
+}
+
+function cargaListaCitas() {
+    $.cookie("CITAUNI", 0, { expires: TLTC, path: '/', domain: g_Dominio });
+
+    var obj_Parametros_JS = new Array();
+    obj_Parametros_JS[0] = $("#bsqNombrePaciente").val();
+    obj_Parametros_JS[1] = $("#bsqApellidoPaciente").val();
+    obj_Parametros_JS[2] = $("#bsqNombreMedico").val();
+    obj_Parametros_JS[3] = $("#bsqConsultorio").val();
+    obj_Parametros_JS[4] = $("#bsqTipoCita").val();
+    obj_Parametros_JS[5] = $("#bsqEstado").val();
+    obj_Parametros_JS[6] = $.cookie("GLBUNI");
+
+    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
+
+    if ((obj_Parametros_JS[6] != 0) && (obj_Parametros_JS[6] != undefined)) {
+        jQuery.ajax({
+            type: "POST",
+            url: "frmConsultaCitas.aspx/CargaListaCitas",
+            data: parametros,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (msg) {
+                var res = msg.d;
+
+                if (res === undefined) {
+                    Swal.fire({
+                        title: "Error en la conexión",
+                        text: "Error de conexión a la base de datos",
+                        icon: "error"
+                    });
+                }
+                else {
                     if (res === "No se encontraron registros") {
-
-                        $("#tblPacientes").html("");
+                        $("#tblCitas").html("");
                         Swal.fire({
                             title: "Búsqueda de Registros",
                             text: res,
@@ -123,8 +372,8 @@ function cargaListaPacientes() {
                         });
                     }
                     else {
-                        $("#tblPacientes").html(res);
-                        paginar("#tblPacientes");
+                        $("#tblCitas").html(res);
+                        paginar("#tblCitas");
                     }
                 }
             },
@@ -152,66 +401,15 @@ function cargaListaPacientes() {
     }
 }
 
-function definePaciente(uni) {
-    $.cookie("PACUNI", uni, { expires: TLTC, path: '/', domain: g_Dominio });
-    location.href = "frmMantenimientoPacientes.aspx";
+function defineCita(uni) {
+    $.cookie("CITAUNI", uni, { expires: TLTC, path: '/', domain: g_Dominio });
+    $.cookie("PACUNI", 0, { expires: TLTC, path: '/', domain: g_Dominio });
+    location.href = "frmMantenimientoCitas.aspx";
 }
 
-function cargaTiposIdentificacionComboMantenimiento() {
+function obtieneDetalleCita() {
     var obj_Parametros_JS = new Array();
-    obj_Parametros_JS[0] = $.cookie("GLBUNI");
-
-    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
-
-    if ((obj_Parametros_JS[0] != 0) && (obj_Parametros_JS[0] != undefined)) {
-        jQuery.ajax({
-            type: "POST",
-            url: "frmMantenimientoPacientes.aspx/CargaListaTiposIdentificacionCombo",
-            data: parametros,
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            cache: false,
-            success: function (msg) {
-                var res = msg.d;
-
-                if (res === undefined) {
-                    Swal.fire({
-                        title: "Error en la conexión",
-                        text: "Error de conexión a la base de datos",
-                        icon: "error"
-                    });
-                }
-                else {
-                    $("#cboTipoIdentificacion").html(res);
-                }
-            },
-            failure: function (msg) {
-
-            },
-            error: function (msg) {
-
-            }
-        });
-    }
-    else {
-        Swal.fire({
-            position: 'center-center',
-            icon: 'error',
-            title: "Error en la conexión",
-            text: "No se ha podido validar la información del usuario. Por favor, inicie sesión en el sistema",
-            showConfirmButton: false,
-            timer: 4500,
-            timerProgressBar: true
-        });
-        setTimeout(function () {
-            location.href = "../Login/frmInicioSesion.aspx";
-        }, 4000);
-    }
-}
-
-function obtieneDetallePaciente() {
-    var obj_Parametros_JS = new Array();
-    obj_Parametros_JS[0] = $.cookie("PACUNI");
+    obj_Parametros_JS[0] = $.cookie("CITAUNI");
     obj_Parametros_JS[1] = $.cookie("GLBUNI");
 
     var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
@@ -219,7 +417,7 @@ function obtieneDetallePaciente() {
     if ((obj_Parametros_JS[1] != 0) && (obj_Parametros_JS[1] != undefined)) {
         jQuery.ajax({
             type: "POST",
-            url: "frmMantenimientoPacientes.aspx/CargaInfoPaciente",
+            url: "frmMantenimientoCitas.aspx/CargaInfoCita",
             data: parametros,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -251,15 +449,14 @@ function obtieneDetallePaciente() {
                     }
                     else {
                         if (resultado != "") {
-                            $("#txtNombre").val(arreglo[1]);
-                            $("#txtPrim_Apellido").val(arreglo[2]);
-                            $("#txtSeg_Apellido").val(arreglo[3]);
-                            $("#cboTipoIdentificacion").val(arreglo[4]);
-                            $("#txtIdentificacion").val(arreglo[5]);
-                            $("#txtTelefono").val(arreglo[6]);
-                            $("#txtCorreo").val(arreglo[7]);
-                            $("#txtFecha_Nacimiento").val(formatDate(arreglo[8]));
-                            $("#txtDireccion").val(arreglo[9]);
+                            $("#hiddenIdPaciente").val(arreglo[3]);
+                            $("#cboMedico").val(arreglo[2]);
+                            $("#cboConsultorio").val(arreglo[4]);
+                            $("#cboTipoCita").val(arreglo[1]);
+                            $("#txtFecha").val(formatDate(arreglo[5]));
+                            $("#cboEstado").val(arreglo[6]);
+
+                            cargaNombrePacienteEdicion(arreglo[3]);
                         }
                     }
                 }
@@ -288,6 +485,43 @@ function obtieneDetallePaciente() {
     }
 }
 
+function cargaNombrePacienteEdicion(idPaciente) {
+    var obj_Parametros_JS = new Array();
+    obj_Parametros_JS[0] = idPaciente;
+
+    var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
+
+    jQuery.ajax({
+        type: "POST",
+        url: "frmMantenimientoCitas.aspx/CargaNombrePaciente",
+        data: parametros,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        success: function (msg) {
+            var res = msg.d;
+
+            if (res === undefined || res === "Paciente no encontrado") {
+                Swal.fire({
+                    title: "Error",
+                    text: "No se pudo cargar la información del paciente",
+                    icon: "error"
+                });
+            }
+            else {
+                $("#txtNombrePaciente").val(res);
+                $("#tituloMantenimiento").html("Editar Cita de <span class='text-primary'>" + res + "</span>");
+            }
+        },
+        failure: function (msg) {
+
+        },
+        error: function (msg) {
+
+        }
+    });
+}
+
 function formatDate(dateStr) {
     var dateParts = dateStr.split("/");
     var day = dateParts[0].padStart(2, '0');
@@ -296,26 +530,23 @@ function formatDate(dateStr) {
     return `${year}-${month}-${day}`;
 }
 
-function mantenimientoPaciente() {
+function mantenimientoCita() {
     var obj_Parametros_JS = new Array();
-    obj_Parametros_JS[0] = $.cookie("PACUNI");
-    obj_Parametros_JS[1] = $("#txtNombre").val();
-    obj_Parametros_JS[2] = $("#txtPrim_Apellido").val();
-    obj_Parametros_JS[3] = $("#txtSeg_Apellido").val();
-    obj_Parametros_JS[4] = $("#cboTipoIdentificacion").val();
-    obj_Parametros_JS[5] = $("#txtIdentificacion").val();
-    obj_Parametros_JS[6] = $("#txtTelefono").val();
-    obj_Parametros_JS[7] = $("#txtCorreo").val();
-    obj_Parametros_JS[8] = $("#txtFecha_Nacimiento").val();
-    obj_Parametros_JS[9] = $("#txtDireccion").val();
-    obj_Parametros_JS[10] = $.cookie("GLBUNI");
+    obj_Parametros_JS[0] = $.cookie("CITAUNI");
+    obj_Parametros_JS[1] = $("#hiddenIdPaciente").val();
+    obj_Parametros_JS[2] = $("#cboMedico").val();
+    obj_Parametros_JS[3] = $("#cboConsultorio").val();
+    obj_Parametros_JS[4] = $("#cboTipoCita").val();
+    obj_Parametros_JS[5] = $("#txtFecha").val();
+    obj_Parametros_JS[6] = $("#cboEstado").val();
+    obj_Parametros_JS[7] = $.cookie("GLBUNI");
 
     var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
 
-    if ((obj_Parametros_JS[10] != 0) && (obj_Parametros_JS[10] != undefined)) {
+    if ((obj_Parametros_JS[7] != 0) && (obj_Parametros_JS[7] != undefined)) {
         jQuery.ajax({
             type: "POST",
-            url: "frmMantenimientoPacientes.aspx/MantenimientoPaciente",
+            url: "frmMantenimientoCitas.aspx/MantenimientoCita",
             data: parametros,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -350,7 +581,7 @@ function mantenimientoPaciente() {
                         });
 
                         setTimeout(function () {
-                            location.href = "frmConsultaPacientes.aspx";
+                            regresar();
                         }, 5000);
                     }
                     else {
@@ -384,11 +615,19 @@ function mantenimientoPaciente() {
             location.href = "../Login/frmInicioSesion.aspx";
         }, 4000);
     }
-
 }
 
+function regresar() {
+    var pacienteId = $.cookie("PACUNI");
 
-function eliminaPaciente(uni) {
+    if (pacienteId && pacienteId != 0) {
+        location.href = "frmConsultaPacientes.aspx";
+    } else {
+        location.href = "frmConsultaCitas.aspx";
+    }
+}
+
+function eliminaCita(uni) {
     var obj_Parametros_JS = new Array();
     obj_Parametros_JS[0] = uni;
     obj_Parametros_JS[1] = $.cookie("GLBUNI");
@@ -398,7 +637,7 @@ function eliminaPaciente(uni) {
     if ((obj_Parametros_JS[1] != 0) && (obj_Parametros_JS[1] != undefined)) {
         jQuery.ajax({
             type: "POST",
-            url: "frmMantenimientoPacientes.aspx/EliminarPacientes",
+            url: "frmMantenimientoCitas.aspx/EliminarCitas",
             data: parametros,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -433,7 +672,7 @@ function eliminaPaciente(uni) {
                         });
 
                         setTimeout(function () {
-                            cargaListaPacientes();
+                            cargaListaCitas();
                         }, 3000);
                     }
                     else {
@@ -467,18 +706,13 @@ function eliminaPaciente(uni) {
             location.href = "../Login/frmInicioSesion.aspx";
         }, 4000);
     }
-
 }
 
 function paginar(elemento) {
-
-
     var table;
 
     if ($.fn.DataTable.isDataTable(elemento)) {
-
         table = $(elemento).DataTable({
-
             "iDisplayLength": 5,
             "aLengthMenu": [[5, 10, 50, 100], [5, 10, 50, 100]],
             "oLanguage":
@@ -508,7 +742,6 @@ function paginar(elemento) {
     }
     else {
         table = $(elemento).DataTable({
-
             "iDisplayLength": 5,
             "aLengthMenu": [[5, 10, 50, 100], [5, 10, 50, 100]],
             "oLanguage":
@@ -535,7 +768,5 @@ function paginar(elemento) {
             paging: true,
             destroy: true
         });
-
     }
-
 }

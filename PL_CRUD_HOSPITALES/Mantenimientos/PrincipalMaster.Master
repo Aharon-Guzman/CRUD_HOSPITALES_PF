@@ -197,7 +197,7 @@
                             <a href="frmConsultaPacientes.aspx">Pacientes</a>
                         </li>
                         <li>
-                            <a href="enConstruccion.aspx">Citas Médicas</a>
+                            <a href="frmConsultaCitas.aspx">Citas Médicas</a>
                         </li>
                     </ul>
                 </li>

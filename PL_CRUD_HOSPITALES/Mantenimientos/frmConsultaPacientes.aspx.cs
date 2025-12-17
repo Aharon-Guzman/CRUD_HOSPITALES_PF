@@ -45,6 +45,7 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
                         "<th>Identificación</th>" +
                         "<th>Teléfono</th>" +
                         "<th>Correo</th>" +
+                        "<th>Citas</th>" +
                         "<th style='text-align:center'>Eliminar</th>" +
                         "</tr>" +
                         "</thead>" +
@@ -59,6 +60,7 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
                             "<td>" + obj_Pacientes_DAL.dtDatos.Rows[i][3].ToString() + "</td>" +
                             "<td>" + obj_Pacientes_DAL.dtDatos.Rows[i][4].ToString() + "</td>" +
                             "<td>" + obj_Pacientes_DAL.dtDatos.Rows[i][5].ToString() + "</td>" +
+                            "<td style='text-align:center'><i class='lni lni-calendar' onclick='javascript: citasPaciente(" + obj_Pacientes_DAL.dtDatos.Rows[i][0].ToString() + ")' style='cursor:pointer'></i></td>" +
                             "<td style='text-align:center'><i class='lni lni-trash-can' onclick='javascript: eliminaPaciente(" + obj_Pacientes_DAL.dtDatos.Rows[i][0].ToString() + ")' style='cursor:pointer'></i></td>" +
                             "</tr>";
                     }

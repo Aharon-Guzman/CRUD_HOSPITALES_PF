@@ -25,9 +25,11 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
 
                 //Listar (cuando todos los filtros están vacíos o en 0)
                 if (
-                    ((obj_Citas_DAL.iId_Paciente == 0))
+                    ((obj_Citas_DAL.sNombrePaciente == string.Empty) || (obj_Citas_DAL.sNombrePaciente == null))
                     &&
-                    ((obj_Citas_DAL.iId_Medico == 0))
+                    ((obj_Citas_DAL.sApellidoPaciente == string.Empty) || (obj_Citas_DAL.sApellidoPaciente == null))
+                    &&
+                    ((obj_Citas_DAL.sNombreMedico == string.Empty) || (obj_Citas_DAL.sNombreMedico == null))
                     &&
                     ((obj_Citas_DAL.iId_Consultorio == 0))
                     &&
@@ -48,10 +50,11 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                     obj_Citas_DAL.dtParametros = null;
                     obj_Citas_DAL.dtParametros = obj_BD_BLL.ObtieneDTParametros(obj_Citas_DAL.dtParametros);
 
-                    //Agregar parámetros
+                    //Agregar parámetros (AHORA SON TEXTOS)
                     //Orden: Nombre, Código Tipo de Dato, Valor
-                    obj_Citas_DAL.dtParametros.Rows.Add("@Id_Paciente", "1", obj_Citas_DAL.iId_Paciente);
-                    obj_Citas_DAL.dtParametros.Rows.Add("@Id_Medico", "1", obj_Citas_DAL.iId_Medico);
+                    obj_Citas_DAL.dtParametros.Rows.Add("@NombrePaciente", "6", obj_Citas_DAL.sNombrePaciente);
+                    obj_Citas_DAL.dtParametros.Rows.Add("@ApellidoPaciente", "6", obj_Citas_DAL.sApellidoPaciente);
+                    obj_Citas_DAL.dtParametros.Rows.Add("@NombreMedico", "6", obj_Citas_DAL.sNombreMedico);
                     obj_Citas_DAL.dtParametros.Rows.Add("@Id_Consultorio", "1", obj_Citas_DAL.iId_Consultorio);
                     obj_Citas_DAL.dtParametros.Rows.Add("@Id_TipoCita", "1", obj_Citas_DAL.iId_TipoCita);
                     obj_Citas_DAL.dtParametros.Rows.Add("@Estado", "6", obj_Citas_DAL.sEstado);
@@ -80,7 +83,6 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                 throw ex;
             }
         }
-
         /// <summary>
         /// Método para obtener la información de una cita específica
         /// </summary>
