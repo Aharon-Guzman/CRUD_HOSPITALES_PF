@@ -75,7 +75,7 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                 obj_ModulosXUsuario_DAL.dtParametros.Rows.Add("@IdUsuario_Global", "1", obj_ModulosXUsuario_DAL.iIdUsuarioGlobal);
 
                 //Definir SP
-                obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_Insert_ModuloXUsuario"];
+                obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_Insert_ModulosXUsuario"];
                 obj_BD_DAL.sIndAxn = "SCALAR";
                 obj_BD_DAL.DT_Parametros = obj_ModulosXUsuario_DAL.dtParametros;
 
@@ -103,6 +103,9 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
         /// <summary>
         /// Método para ELIMINAR asignación de módulo
         /// </summary>
+        /// <summary>
+        /// Método para ELIMINAR asignación de módulo
+        /// </summary>
         public void eliminarModuloXUsuario(ref cls_ModulosXUsuario_DAL obj_ModulosXUsuario_DAL)
         {
             try
@@ -115,13 +118,12 @@ namespace BLL_CRUD_HOSPITALES.Mantenimientos
                 obj_ModulosXUsuario_DAL.dtParametros = null;
                 obj_ModulosXUsuario_DAL.dtParametros = obj_BD_BLL.ObtieneDTParametros(obj_ModulosXUsuario_DAL.dtParametros);
 
-                //Agregar parámetros
+                //Agregar SOLO 2 parámetros
                 obj_ModulosXUsuario_DAL.dtParametros.Rows.Add("@IdModuloUsuario", "1", obj_ModulosXUsuario_DAL.iId_Modulo_Usuario);
-                obj_ModulosXUsuario_DAL.dtParametros.Rows.Add("@IdUsuario", "1", obj_ModulosXUsuario_DAL.iId_Usuario);
                 obj_ModulosXUsuario_DAL.dtParametros.Rows.Add("@IdUsuario_Global", "1", obj_ModulosXUsuario_DAL.iIdUsuarioGlobal);
 
                 //Definir SP
-                obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_Delete_ModuloXUsuario"];
+                obj_BD_DAL.sNomSP = ConfigurationManager.AppSettings["SP_Delete_ModulosXUsuario"];
                 obj_BD_DAL.sIndAxn = "SCALAR";
                 obj_BD_DAL.DT_Parametros = obj_ModulosXUsuario_DAL.dtParametros;
 

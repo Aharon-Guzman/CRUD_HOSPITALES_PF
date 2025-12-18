@@ -217,13 +217,12 @@ function asignaModuloXUsuario(idModulo) {
 
 function eliminaModuloXUsuario(idModuloUsuario) {
     var obj_Parametros_JS = new Array();
-    obj_Parametros_JS[0] = idModuloUsuario;
-    obj_Parametros_JS[1] = $.cookie("USRUNI");
-    obj_Parametros_JS[2] = $.cookie("GLBUNI");
+    obj_Parametros_JS[0] = idModuloUsuario;      
+    obj_Parametros_JS[1] = $.cookie("GLBUNI");   
 
     var parametros = JSON.stringify({ 'obj_Parametros_JS': obj_Parametros_JS });
 
-    if ((obj_Parametros_JS[2] != 0) && (obj_Parametros_JS[2] != undefined)) {
+    if ((obj_Parametros_JS[1] != 0) && (obj_Parametros_JS[1] != undefined)) {
         jQuery.ajax({
             type: "POST",
             url: "frmMantenimientoModulosXUsuario.aspx/EliminarModuloXUsuario",

@@ -170,10 +170,9 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
                 cls_ModulosXUsuario_DAL obj_ModulosXUsuario_DAL = new cls_ModulosXUsuario_DAL();
                 cls_ModulosXUsuario_BLL obj_ModulosXUsuario_BLL = new cls_ModulosXUsuario_BLL();
 
-                //Descomponemos valores
+                //Descomponemos valores - SOLO 2 parámetros
                 obj_ModulosXUsuario_DAL.iId_Modulo_Usuario = Convert.ToInt32(obj_Parametros_JS[0].ToString());
-                obj_ModulosXUsuario_DAL.iId_Usuario = Convert.ToInt32(obj_Parametros_JS[1].ToString());
-                obj_ModulosXUsuario_DAL.iIdUsuarioGlobal = Convert.ToInt32(obj_Parametros_JS[2].ToString());
+                obj_ModulosXUsuario_DAL.iIdUsuarioGlobal = Convert.ToInt32(obj_Parametros_JS[1].ToString());
 
                 //Ejecutar
                 obj_ModulosXUsuario_BLL.eliminarModuloXUsuario(ref obj_ModulosXUsuario_DAL);
