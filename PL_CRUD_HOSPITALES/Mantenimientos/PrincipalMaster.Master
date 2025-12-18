@@ -81,7 +81,7 @@
         <%-- fin css de logo :) --%>
 
         <nav class="sidebar-nav">
-            <ul id="menu">
+            <ul>
                 <li class="nav-item">
                     <a
                         href="frmPrincipal.aspx">
@@ -208,7 +208,7 @@
                 </span>
 
 
-              <%--Catalogos --%>
+                <%--Catalogos --%>
                 <li class="nav-item nav-item-has-children">
                     <a
                         href="#0"
