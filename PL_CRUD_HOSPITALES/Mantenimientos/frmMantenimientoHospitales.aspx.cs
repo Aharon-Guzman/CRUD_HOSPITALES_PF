@@ -14,6 +14,7 @@ namespace PL_CRUD_HOSPITALES.Mantenimientos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ValidacionAcceso.ValidarYRedirigir();
 
         }
         [WebMethod]
