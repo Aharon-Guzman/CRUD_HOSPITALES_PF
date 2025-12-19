@@ -16,15 +16,11 @@
     <link rel="stylesheet" href="assets/css/fullcalendar.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
 
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
-
-
 </head>
 <body>
-    <%--    <form id="form1" runat="server">--%>
     <!-- ======== Preloader =========== -->
     <div id="preloader">
         <div class="spinner"></div>
@@ -81,21 +77,10 @@
         <%-- fin css de logo :) --%>
 
         <nav class="sidebar-nav">
-            <ul>
+            <ul id="menu">
                 <li class="nav-item">
                     <a
                         href="frmPrincipal.aspx">
-
-                        <%-- Solo este icono se mantiene original, para el resto de utiliza Glyps
-                   Plantilla base:
-             <span class="icon">
-               <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                 <g transform="scale(1, -1) translate(0, -256)">
-                   <path d="AQUÍ_VA_EL_D"/>
-                  </g>
-               </svg>
-             </span>
-                        --%>
 
                         <%-- Dashboard --%>
                         <span class="icon">
@@ -116,176 +101,18 @@
                     <hr />
                 </span>
 
-                <%-- Infraestructura --%>
-                <li class="nav-item nav-item-has-children">
-                    <a
-                        href="#0"
-                        class="collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#ddmenu_2"
-                        aria-controls="ddmenu_2"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="icon">
-                            <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <g transform="scale(1, -1) translate(0, -256)">
-                                    <path d="M224 248.8H134C120.4 248.8 109.2 237.6 109.2 223.6V208H32C18.4 208 6.8 196.8 6.8 182.8V32C6.8 18.4 18 6.8 32 6.8H224C237.6 6.8 249.2 18 249.2 32V224C249.2 237.6 237.6 248.8 224 248.8zM108.8 24.8H32C28 24.8 24.8 28 24.8 32V183.2C24.8 187.2 28 190.4 32 190.4H108.8V24.8zM231.2 32C231.2 28 228 24.8 224 24.8H126.8V224C126.8 228 130 231.2 133.6 231.2H224C228 231.2 231.2 228 231.2 224V32zM56 143.6H78.4C83.2 143.6 87.6 147.6 87.6 152.8S83.6 162 78.4 162H56C51.2 162 46.8 158 46.8 152.8S51.2 143.6 56 143.6zM56 98.8H78.4C83.2 98.8 87.6 102.8 87.6 108S83.6 117.2 78.4 117.2H56C51.2 117.2 46.8 113.2 46.8 108S51.2 98.8 56 98.8zM55.6 53.6H78C82.8 53.6 87.2 57.6 87.2 62.8S83.2 72 78 72H55.6C50.8 72 46.4 68 46.4 62.8S50.8 53.6 55.6 53.6zM190.4 197.2H168C163.2 197.2 158.8 193.2 158.8 188S162.8 178.8 168 178.8H190.4C195.2 178.8 199.6 182.8 199.6 188S195.2 197.2 190.4 197.2zM190.4 139.6H168C163.2 139.6 158.8 135.6 158.8 130.4C158.8 125.6 162.8 121.2 168 121.2H190.4C195.2 121.2 199.6 125.2 199.6 130.4C199.2 135.6 195.2 139.6 190.4 139.6zM190 82H167.6C162.8 82 158.4 78 158.4 72.8S162.4 63.6 167.6 63.6H190C194.8 63.6 199.2 67.6 199.2 72.8S194.8 82 190 82z" />
-                                </g>
-                            </svg>
-                        </span>
-                        <span class="text">Infraestructura</span>
-                    </a>
-                    <ul id="ddmenu_2" class="collapse dropdown-nav">
-                        <li>
-                            <a href="frmConsultaHospitales.aspx">Hospitales </a>
-                        </li>
-                        <li>
-                            <a href="frmConsultaConsultorios.aspx">Consultorios </a>
-                        </li>
-                    </ul>
-                </li>
-                <%--Fin Infraestructura --%>
+                <%--***********************************************************************************
 
-                <%--Personal Medico --%>
-                <li class="nav-item nav-item-has-children">
-                    <a
-                        href="#0"
-                        class="collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#ddmenu_3"
-                        aria-controls="ddmenu_3"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="icon">
-                            <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <g transform="scale(1, -1) translate(0, -256)">
-                                    <path d="M127.6 182.4C144.4 182.4 157.6 196 157.6 212.4S144 242.4 127.6 242.4S97.6 228.8 97.6 212.4S110.8 182.4 127.6 182.4zM127.6 224.8C134.4 224.8 139.6 219.2 139.6 212.8S134 200.8 127.6 200.8S115.6 206.4 115.6 212.8S120.8 224.8 127.6 224.8zM94.4 142C102.8 151.2 115.2 156.8 128 156.8S153.2 151.6 161.6 142C163.2 140 165.6 139.2 168.4 139.2C170.4 139.2 172.8 140 174.4 141.6C178 144.8 178.4 150.8 174.8 154.4C162.8 167.2 145.6 174.8 128 174.8S93.2 167.2 81.2 154.4C78 150.8 78 145.2 81.6 141.6C85.2 138 90.8 138.4 94.4 142zM53.6 55.6C70.4 55.6 83.6 69.2 83.6 85.6C83.6 102.4 70 115.6 53.6 115.6S23.6 102 23.6 85.6C23.2 68.8 36.8 55.6 53.6 55.6zM53.6 98C60.4 98 65.6 92.4 65.6 86C65.6 79.2 60 74 53.6 74S41.6 79.6 41.6 86C41.2 92.4 46.8 98 53.6 98zM52.4 48.8C34.8 48.8 17.6 41.2 5.6 28.4C2.4 24.8 2.4 19.2 6 15.6C9.6 12 15.2 12.4 18.8 16C27.2 25.2 39.6 30.8 52.4 30.8S77.6 25.6 86 16C87.6 14 90 13.2 92.8 13.2C94.8 13.2 97.2 14 98.8 15.6C102.4 18.8 102.8 24.8 99.2 28.4C87.2 41.2 70 48.8 52.4 48.8zM201.6 55.6C218.4 55.6 231.6 69.2 231.6 85.6C231.6 102.4 218 115.6 201.6 115.6C184.8 115.6 171.6 102 171.6 85.6C171.6 68.8 185.2 55.6 201.6 55.6zM201.6 98C208.4 98 213.6 92.4 213.6 86C213.6 79.2 208 74 201.6 74C194.8 74 189.6 79.6 189.6 86S195.2 98 201.6 98zM250.8 28C238.8 40.8 221.6 48.4 204 48.4S169.2 40.8 157.2 28C154 24.4 154 18.8 157.6 15.2C161.2 12 166.8 12 170.4 15.6C178.8 24.8 191.2 30.4 204 30.4S229.2 25.2 237.6 15.6C239.2 13.6 241.6 12.8 244.4 12.8C246.4 12.8 248.8 13.6 250.4 15.2C253.6 18.8 254 24.4 250.8 28zM156.8 92.4C158.8 96.8 156.8 102.4 152.4 104.4L136.8 111.6V128C136.8 132.8 132.8 137.2 128 137.2S118.8 133.2 118.8 128V112L102.8 104.4C98.4 102.4 96.4 96.8 98.4 92.4S106 86 110.4 88L127.2 96L145.2 88C146.4 87.6 147.6 87.2 148.8 87.2C152 87.2 155.2 89.2 156.8 92.4z" />
-                                </g>
-                            </svg>
-                        </span>
-                        <span class="text">Personal Médico</span>
-                    </a>
-                    <ul id="ddmenu_3" class="collapse dropdown-nav">
-                        <li>
-                            <a href="frmConsultaMedicos.aspx">Médicos</a>
-                        </li>
-                    </ul>
-                </li>
-                <%--Fin Personal Medico --%>
+                    Aca vamos cargar el menu dinameicamente
 
-                <%--Pacientes y Citaas --%>
-                <li class="nav-item nav-item-has-children">
-                    <a
-                        href="#0"
-                        class="collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#ddmenu_4"
-                        aria-controls="ddmenu_4"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="icon">
-                            <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <g transform="scale(1, -1) translate(0, -256)">
-                                    <path d="M128 20C122.8 20 117.6 22 113.6 25.6C104.4 33.6 96 40.8 88.4 47.2C65.6 66.8 45.6 83.2 31.6 100C15.2 120 7.2 138.8 7.2 160C7.2 180.4 14.4 199.6 27.2 213.6C40.4 228 58.8 236 78.4 236C93.2 236 107.2 231.2 119.2 222C122.4 219.6 125.2 217.2 128 214C130.8 216.8 133.6 219.6 136.8 222C148.8 231.2 162.4 236 177.6 236C197.6 236 215.6 228 228.8 213.6C242 199.6 248.8 180.4 248.8 160C248.8 138.8 241.2 120 224.4 100C210.4 83.2 190.4 66.4 167.6 47.2C160 40.8 151.2 33.2 142 25.6C138.4 22 133.2 20 128 20zM78.4 218C63.6 218 50 212 40 201.6C30.4 190.8 25.2 176 25.2 160C25.2 143.6 31.6 128 45.2 111.6C58.4 96 77.6 79.6 99.6 60.8C107.2 54.4 116 46.8 125.2 38.8C126.8 37.6 129.2 37.6 130.8 38.8C140 46.8 148.8 54 156.4 60.8C178.8 80 198 96 210.8 111.6C224.4 128 230.8 143.6 230.8 160C230.8 176 225.2 190.8 215.6 201.2C205.6 212 192 218 177.6 218C166.8 218 156.8 214.4 148 208C144.4 205.2 141.2 202 138 198.4C135.6 195.6 132 193.6 128 193.6S120.8 195.2 118 198.4C114.8 202 111.6 205.2 108 208C99.6 214.4 89.6 218 78.4 218z" />
-                                </g>
-                            </svg>
-                        </span>
-                        <span class="text">Pacientes y Citas</span>
-                    </a>
-                    <ul id="ddmenu_4" class="collapse dropdown-nav">
-                        <li>
-                            <a href="frmConsultaPacientes.aspx">Pacientes</a>
-                        </li>
-                        <li>
-                            <a href="frmConsultaCitas.aspx">Citas Médicas</a>
-                        </li>
-                    </ul>
-                </li>
-                <%-- Fin Pacientes y Citaas --%>
+                *********************************************************************************** --%>
+            </ul>
+            <span class="divider">
+                <hr />
+            </span>
 
-                <span class="divider">
-                    <hr />
-                </span>
-
-
-                <%--Catalogos --%>
-                <li class="nav-item nav-item-has-children">
-                    <a
-                        href="#0"
-                        class="collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#ddmenu_6"
-                        aria-controls="ddmenu_6"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="icon">
-                            <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <g transform="scale(1, -1) translate(0, -256)">
-                                    <path d="M244 177.6V190.8C244 204.4 233.2 215.2 219.6 215.2H130.8L129.6 218.4C126.8 225.6 120 230 112.4 230H31.6C18 230 7.2 219.2 7.2 205.6V50C7.2 36.4 18 25.6 31.6 25.6H224.8C238.4 25.6 249.2 36.4 249.2 50V165.2C249.2 170 247.2 174.4 244 177.6zM219.6 197.6C223.2 197.6 226 194.8 226 191.2V183.6H143.6L138 197.6H219.6zM231.2 50C231.2 46.4 228.4 43.6 224.8 43.6H31.6C28 43.6 25.2 46.4 25.2 50V206C25.2 209.6 28 212.4 31.6 212.4L112.8 212L129.2 171.2C130.4 167.6 134 165.6 137.6 165.6H230.8S231.2 165.6 231.2 165.2V50z" />
-                                </g>
-                            </svg>
-                        </span>
-                        <span class="text">Catálogos</span>
-                    </a>
-                    <ul id="ddmenu_6" class="collapse dropdown-nav">
-                        <li>
-                            <a href="frmConsultaTiposIdentificacion.aspx">Tipos de Identificación</a>
-                        </li>
-                        <li>
-                            <a href="frmConsultaTiposConsultorio.aspx">Tipos de Consultorios</a>
-                        </li>
-                        <li>
-                            <a href="frmConsultaTiposEspecialidad.aspx">Tipos de Especialidades</a>
-                        </li>
-                        <li>
-                            <a href="frmConsultaTiposCita.aspx">Tipos de Citas</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <%--FIN Catalogos --%>
-
-
-                <%--Administración --%>
-                <li class="nav-item nav-item-has-children">
-                    <a
-                        href="#0"
-                        class="collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#ddmenu_5"
-                        aria-controls="ddmenu_5"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="icon">
-                            <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <g transform="scale(1, -1) translate(0, -256)">
-                                    <path d="M235.2 104.8L216 98C214.4 92.4 212 87.2 208.8 82.4L217.6 65.2C220 60.8 219.2 55.2 215.6 51.6L204.4 40.4C200.8 36.8 195.2 36 190.8 38.4L173.6 47.2C168.8 44 163.6 41.6 158 40L151.2 20.8C149.6 16 145.2 12.8 140 12.8H124C118.8 12.8 114.4 16 112.8 20.8L106 40C100.4 41.6 95.2 44 90.4 47.2L73.2 38.4C68.8 36 63.2 36.8 59.6 40.4L48.4 51.6C44.8 55.2 44 60.8 46.4 65.2L55.2 82.4C52 87.2 49.6 92.4 48 98L28.8 104.8C24 106.4 20.8 110.8 20.8 116V132C20.8 137.2 24 141.6 28.8 143.2L48 150C49.6 155.6 52 160.8 55.2 165.6L46.4 182.8C44 187.2 44.8 192.8 48.4 196.4L59.6 207.6C63.2 211.2 68.8 212 73.2 209.6L90.4 200.8C95.2 204 100.4 206.4 106 208L112.8 227.2C114.4 232 118.8 235.2 124 235.2H140C145.2 235.2 149.6 232 151.2 227.2L158 208C163.6 206.4 168.8 204 173.6 200.8L190.8 209.6C195.2 212 200.8 211.2 204.4 207.6L215.6 196.4C219.2 192.8 220 187.2 217.6 182.8L208.8 165.6C212 160.8 214.4 155.6 216 150L235.2 143.2C240 141.6 243.2 137.2 243.2 132V116C243.2 110.8 240 106.4 235.2 104.8zM132 172C104.8 172 83.2 150.4 83.2 123.2C83.2 96 104.8 74.4 132 74.4C159.2 74.4 180.8 96 180.8 123.2C180.8 150.4 159.2 172 132 172z" />
-                                </g>
-                            </svg>
-
-                        </span>
-                        <span class="text">Administración</span>
-                    </a>
-                    <ul id="ddmenu_5" class="collapse dropdown-nav">
-                        <li>
-                            <a href="frmConsultaUsuarios.aspx">Usuarios</a>
-                        </li>
-                        <li>
-                            <a href="enConstruccion.aspx">Permisos</a>
-                        </li>
-                        <li>
-                            <a href="enConstruccion.aspx">Auditoría</a>
-                        </li>
-                    </ul>
-                </li>
-                <%--Fin Administración --%>
-
-                <span class="divider">
-                    <hr />
-                </span>
-
-                <%--Cerrar sesion --%>
-
+            <%--Cerrar sesion --%>
+            <ul>
                 <li class="nav-item">
                     <a href="#" onclick="javascript: cerrarSesion()">
                         <span class="icon">
@@ -299,9 +126,8 @@
                         <span class="text">Cerrar Sesión</span>
                     </a>
                 </li>
-
-                <%--Fin Cerrar sesion --%>
             </ul>
+            <%--Fin Cerrar sesion --%>
         </nav>
     </aside>
     <div class="overlay"></div>
@@ -490,11 +316,6 @@
             </div>
         </header>
         <!-- ========== header end ========== -->
-
-
-
-
-
 
         <%-- apertura contenido Dinamico --%>
         <div class="container-fluid">
@@ -1093,6 +914,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <%--    </form>--%>
 </body>
 </html>
