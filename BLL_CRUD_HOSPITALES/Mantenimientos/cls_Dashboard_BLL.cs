@@ -1,247 +1,49 @@
-﻿using DAL_CRUD_HOSPITALES.Mantenimientos;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BLL_CRUD_HOSPITALES.DB;
+using DAL_CRUD_HOSPITALES.DB;
+using DAL_CRUD_HOSPITALES.Mantenimientos;
 
 namespace BLL_CRUD_HOSPITALES.Mantenimientos
 {
-    /// <summary>
-    /// Clase de Lógica de Negocio para Dashboard
-    /// </summary>
     public class cls_Dashboard_BLL
     {
-        // ========================================
-        // Cadena de conexión
-        // ========================================
-        private static string sConexion = ConfigurationManager.ConnectionStrings["WIN_AUT"].ConnectionString;
-
-        // ========================================
-        // MÉTODO 1: Obtener Total de Pacientes
-        // ========================================
-        public void ObtenerTotalPacientes(ref cls_Dashboard_DAL obj_DAL)
+        public void ObtenerEstadisticas(ref cls_Dashboard_DAL obj_Dashboard_DAL)
         {
             try
             {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_TotalPacientes", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
+                cls_BD_DAL obj_BD_DAL = new cls_BD_DAL();
+                cls_BD_BLL obj_BD_BLL = new cls_BD_BLL();
 
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtTotalPacientes = new DataTable();
-                        da.Fill(obj_DAL.dtTotalPacientes);
-                    }
-                }
+                // SP 1: Total Pacientes
+                obj_BD_DAL.sNomSP = "USP_Dashboard_TotalPacientes";
+                obj_BD_DAL.DT_Parametros = null;
+                obj_BD_DAL.sNomTabla = "Dashboard";
+                obj_BD_BLL.EjecutaProcesosTabla(ref obj_BD_DAL);
+                if (obj_BD_DAL.sMsjErrorBD == string.Empty && obj_BD_DAL.DS.Tables[0].Rows.Count > 0)
+                    obj_Dashboard_DAL.iTotalPacientes = Convert.ToInt32(obj_BD_DAL.DS.Tables[0].Rows[0][0]);
+
+                // SP 2: Citas Hoy
+                obj_BD_DAL.sNomSP = "USP_Dashboard_CitasHoy";
+                obj_BD_BLL.EjecutaProcesosTabla(ref obj_BD_DAL);
+                if (obj_BD_DAL.sMsjErrorBD == string.Empty && obj_BD_DAL.DS.Tables[0].Rows.Count > 0)
+                    obj_Dashboard_DAL.iCitasHoy = Convert.ToInt32(obj_BD_DAL.DS.Tables[0].Rows[0]["Total_Citas_Hoy"]);
+
+                // SP 3: Total Médicos
+                obj_BD_DAL.sNomSP = "USP_Dashboard_TotalMedicos";
+                obj_BD_BLL.EjecutaProcesosTabla(ref obj_BD_DAL);
+                if (obj_BD_DAL.sMsjErrorBD == string.Empty && obj_BD_DAL.DS.Tables[0].Rows.Count > 0)
+                    obj_Dashboard_DAL.iTotalMedicos = Convert.ToInt32(obj_BD_DAL.DS.Tables[0].Rows[0][0]);
+
+                // SP 4: Total Hospitales
+                obj_BD_DAL.sNomSP = "USP_Dashboard_TotalHospitales";
+                obj_BD_BLL.EjecutaProcesosTabla(ref obj_BD_DAL);
+                if (obj_BD_DAL.sMsjErrorBD == string.Empty && obj_BD_DAL.DS.Tables[0].Rows.Count > 0)
+                    obj_Dashboard_DAL.iTotalHospitales = Convert.ToInt32(obj_BD_DAL.DS.Tables[0].Rows[0][0]);
             }
             catch (Exception ex)
             {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 2: Obtener Citas de Hoy
-        // ========================================
-        public void ObtenerCitasHoy(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_CitasHoy", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtCitasHoy = new DataTable();
-                        da.Fill(obj_DAL.dtCitasHoy);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 3: Obtener Total de Médicos
-        // ========================================
-        public void ObtenerTotalMedicos(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_TotalMedicos", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtTotalMedicos = new DataTable();
-                        da.Fill(obj_DAL.dtTotalMedicos);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 4: Obtener Total de Hospitales
-        // ========================================
-        public void ObtenerTotalHospitales(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_TotalHospitales", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtTotalHospitales = new DataTable();
-                        da.Fill(obj_DAL.dtTotalHospitales);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 5: Obtener Citas por Mes
-        // ========================================
-        public void ObtenerCitasPorMes(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_CitasPorMes", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtCitasPorMes = new DataTable();
-                        da.Fill(obj_DAL.dtCitasPorMes);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 6: Obtener Pacientes por Tipo de Cita
-        // ========================================
-        public void ObtenerPacientesPorTipoCita(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_PacientesPorTipoCita", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtPacientesPorTipoCita = new DataTable();
-                        da.Fill(obj_DAL.dtPacientesPorTipoCita);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 7: Obtener Próximas Citas del Día
-        // ========================================
-        public void ObtenerProximasCitasHoy(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_ProximasCitasHoy", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtProximasCitas = new DataTable();
-                        da.Fill(obj_DAL.dtProximasCitas);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 8: Obtener Top Especialidades
-        // ========================================
-        public void ObtenerTopEspecialidades(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_TopEspecialidades", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtTopEspecialidades = new DataTable();
-                        da.Fill(obj_DAL.dtTopEspecialidades);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
-            }
-        }
-
-        // ========================================
-        // MÉTODO 9: Obtener Top Hospitales
-        // ========================================
-        public void ObtenerTopHospitales(ref cls_Dashboard_DAL obj_DAL)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(sConexion))
-                {
-                    using (SqlCommand cmd = new SqlCommand("USP_Dashboard_TopHospitales", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        SqlDataAdapter da = new SqlDataAdapter(cmd);
-                        obj_DAL.dtTopHospitales = new DataTable();
-                        da.Fill(obj_DAL.dtTopHospitales);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                obj_DAL.sMensajeError = ex.Message;
+                throw ex;
             }
         }
     }

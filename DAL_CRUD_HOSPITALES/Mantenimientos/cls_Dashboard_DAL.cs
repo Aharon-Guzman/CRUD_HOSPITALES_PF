@@ -1,45 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL_CRUD_HOSPITALES.Mantenimientos
 {
-    /// <summary>
-    /// Clase de Acceso a Datos para Dashboard
-    /// </summary>
     public class cls_Dashboard_DAL
     {
-        // ========================================
-        // Propiedades para Cards (Tarjetas)
-        // ========================================
-        public DataTable dtTotalPacientes { get; set; }
-        public DataTable dtCitasHoy { get; set; }
-        public DataTable dtTotalMedicos { get; set; }
-        public DataTable dtTotalHospitales { get; set; }
+        #region Variables Privadas
+        private int _iTotalPacientes, _iCitasHoy, _iTotalMedicos, _iTotalHospitales;
+        private string _sMSJError;
+        private DataTable _dtDatos, _dtParametros;
+        private int _iIdUsuarioGlobal;
+        #endregion
 
-        // ========================================
-        // Propiedades para Gráficas
-        // ========================================
-        public DataTable dtCitasPorMes { get; set; }
-        public DataTable dtPacientesPorTipoCita { get; set; }
-
-        // ========================================
-        // Propiedades para Tabla
-        // ========================================
-        public DataTable dtProximasCitas { get; set; }
-
-        // ========================================
-        // Propiedades para Info Adicional
-        // ========================================
-        public DataTable dtTopEspecialidades { get; set; }
-        public DataTable dtTopHospitales { get; set; }
-
-        // ========================================
-        // Propiedad para manejar errores
-        // ========================================
-        public string sMensajeError { get; set; }
+        #region Propiedades
+        public int iTotalPacientes { get => _iTotalPacientes; set => _iTotalPacientes = value; }
+        public int iCitasHoy { get => _iCitasHoy; set => _iCitasHoy = value; }
+        public int iTotalMedicos { get => _iTotalMedicos; set => _iTotalMedicos = value; }
+        public int iTotalHospitales { get => _iTotalHospitales; set => _iTotalHospitales = value; }
+        public string sMSJError { get => _sMSJError; set => _sMSJError = value; }
+        public DataTable dtDatos { get => _dtDatos; set => _dtDatos = value; }
+        public DataTable dtParametros { get => _dtParametros; set => _dtParametros = value; }
+        public int iIdUsuarioGlobal { get => _iIdUsuarioGlobal; set => _iIdUsuarioGlobal = value; }
+        #endregion
     }
 }

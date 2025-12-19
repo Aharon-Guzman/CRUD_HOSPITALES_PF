@@ -72,6 +72,7 @@
     <Content Include="JavaScript\Cita.js" />
     <Content Include="JavaScript\Citas.js" />
     <Content Include="JavaScript\Consultorios.js" />
+    <Content Include="JavaScript\Dashboard.js" />
     <Content Include="JavaScript\Especialidad.js" />
     <Content Include="JavaScript\Consultorio.js" />
     <Content Include="JavaScript\Especialidades.js" />
