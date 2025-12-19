@@ -263,6 +263,109 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Descripción de Módulo' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Modulos', @level2type=N'COLUMN',@level2name=N'Modulo'
 GO
 
+/*
+*******************************Inicio modificacion de tabla modulos
+*/
+
+
+-- ========================================
+-- FASE 1: MODIFICAR TABLA MODULOS
+-- Agregar columnas para soporte de categorías dinámicas
+-- ========================================
+
+USE CRUD_HOSPITALES
+GO
+
+-- Agregar columna Categoria
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Modulos') AND name = 'Categoria')
+BEGIN
+    ALTER TABLE Modulos
+    ADD Categoria NVARCHAR(50) NULL
+    
+    PRINT 'Columna Categoria agregada a Modulos'
+END
+ELSE
+BEGIN
+    PRINT 'Columna Categoria ya existe'
+END
+GO
+
+-- Agregar columna Orden_Categoria
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Modulos') AND name = 'Orden_Categoria')
+BEGIN
+    ALTER TABLE Modulos
+    ADD Orden_Categoria INT NULL
+    
+    PRINT 'Columna Orden_Categoria agregada a Modulos'
+END
+ELSE
+BEGIN
+    PRINT 'Columna Orden_Categoria ya existe'
+END
+GO
+
+--Agregar columna Icono_Categoria (SVG Path)
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Modulos') AND name = 'Icono_Categoria')
+BEGIN
+    ALTER TABLE Modulos
+    ADD Icono_Categoria NVARCHAR(MAX) NULL
+    
+    PRINT 'Columna Icono_Categoria agregada a modulos'
+END
+ELSE
+BEGIN
+    PRINT 'Columna Icono_Categoria ya existe'
+END
+GO
+
+-- Agregar columna ViewBox_Categoria
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Modulos') AND name = 'ViewBox_Categoria')
+BEGIN
+    ALTER TABLE Modulos
+    ADD ViewBox_Categoria NVARCHAR(50) NULL
+    
+    PRINT 'Columna ViewBox_Categoria agregada a modulos'
+END
+ELSE
+BEGIN
+    PRINT 'Columna ViewBox_Categoria ya existe'
+END
+GO
+
+-- Agregar columna SvgPath si no existe (para íconos individuales de módulos)
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Modulos') AND name = 'SvgPath')
+BEGIN
+    ALTER TABLE Modulos
+    ADD SvgPath NVARCHAR(MAX) NULL
+    
+    PRINT 'Columna SvgPath agregada a modulos'
+END
+ELSE
+BEGIN
+    PRINT 'Columna SvgPath ya existe'
+END
+GO
+
+-- Agregar columna ViewBox si no existe
+IF NOT EXISTS (SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('Modulos') AND name = 'ViewBox')
+BEGIN
+    ALTER TABLE Modulos
+    ADD ViewBox NVARCHAR(50) NULL
+    
+    PRINT 'Columna ViewBox agregada a modulos'
+END
+ELSE
+BEGIN
+    PRINT 'Columna ViewBox ya existe'
+END
+GO
+
+GO
+
+
+/*
+*******************************Fin modificacion de tabla modulos
+*/
 
 --Crear tabla modulos por usuario
 
