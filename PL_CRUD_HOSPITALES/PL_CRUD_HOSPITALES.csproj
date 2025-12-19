@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="JavaScript\Auditoria.js" />
     <Content Include="JavaScript\Cita.js" />
     <Content Include="JavaScript\Citas.js" />
     <Content Include="JavaScript\Consultorios.js" />
@@ -158,6 +159,7 @@
     <Content Include="Mantenimientos\enConstruccion.aspx" />
     <Content Include="Mantenimientos\frmAccesoDenegado.aspx" />
     <Content Include="Mantenimientos\frmAsignarEspecialidades.aspx" />
+    <Content Include="Mantenimientos\frmConsultaAuditoria.aspx" />
     <Content Include="Mantenimientos\frmConsultaCitas.aspx" />
     <Content Include="Mantenimientos\frmConsultaConsultorios.aspx" />
     <Content Include="Mantenimientos\frmConsultaHospitales.aspx" />
@@ -213,6 +215,13 @@
     </Compile>
     <Compile Include="Mantenimientos\frmAsignarEspecialidades.aspx.designer.cs">
       <DependentUpon>frmAsignarEspecialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaAuditoria.aspx.cs">
+      <DependentUpon>frmConsultaAuditoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\frmConsultaAuditoria.aspx.designer.cs">
+      <DependentUpon>frmConsultaAuditoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\frmConsultaCitas.aspx.cs">
       <DependentUpon>frmConsultaCitas.aspx</DependentUpon>
